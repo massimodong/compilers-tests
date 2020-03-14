@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ -z $1 ]
+then
+  echo "Please run \"run.sh\""
+  exit 1;
+fi
+
 FL1=$(head -1 $1)
 FL2=$(head -1 $2)
 
