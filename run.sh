@@ -1,5 +1,10 @@
 #!/bin/bash
 
+RED='\033[0;31m'
+NC='\033[0m'
+BOLD=$(tput bold)
+NORMAL=$(tput sgr0)
+
 if [ -z $1 ]
 then
   echo "Usage: $0 path_to_parser_binary"
@@ -23,7 +28,7 @@ for fcmm in ./tests/*.cmm; do
   if ./check.sh ./workdir/a.out ./workdir/b.out; then
     echo test [$(basename $fcmm)] matched
   else
-    echo !!! test [$(basename $fcmm)] mismatch !!!
+    echo -e "${RED}${BOLD}test [$(basename $fcmm)] mismatch${NC}${NORMAL}"
     diff ./workdir/a.out ./workdir/b.out | head -10
     read -p "Enter [c] to continue, or [Enter] to abort: " txt
     if [ -z "$txt" ] || [ $txt != 'c' ]
