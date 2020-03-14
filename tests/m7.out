@@ -1,0 +1,70 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        TYPE: int
+      FunDec (1)
+        ID: main
+        LP
+        RP
+      CompSt (1)
+        LC
+        StmtList (2)
+          Stmt (2)
+            Exp (2)
+              INT: 0
+            SEMI
+          StmtList (3)
+            Stmt (3)
+              Exp (3)
+                INT: 0
+              SEMI
+            StmtList (4)
+              Stmt (4)
+                Exp (4)
+                  INT: 0
+                SEMI
+              StmtList (5)
+                Stmt (5)
+                  Exp (5)
+                    INT: 1010
+                  SEMI
+                StmtList (6)
+                  Stmt (6)
+                    Exp (6)
+                      INT: 65
+                    SEMI
+                  StmtList (7)
+                    Stmt (7)
+                      Exp (7)
+                        INT: 2
+                      SEMI
+                    StmtList (8)
+                      Stmt (8)
+                        Exp (8)
+                          INT: 22222
+                        SEMI
+                      StmtList (10)
+                        Stmt (10)
+                          Exp (10)
+                            Exp (10)
+                              Exp (10)
+                                INT: 12
+                              STAR
+                              Exp (10)
+                                INT: 39595
+                            PLUS
+                            Exp (10)
+                              INT: 458
+                          SEMI
+                        StmtList (12)
+                          Stmt (12)
+                            Exp (12)
+                              INT: 0
+                            SEMI
+                          StmtList (13)
+                            Stmt (13)
+                              Exp (13)
+                                ID: x0
+                              SEMI
+        RC
