@@ -1,0 +1,53 @@
+/* Multiple syntax errors! */
+int 0main ( int a, int b,       // bad FunDec ID
+  int , float x                 // bad VarList
+) {
+  struct X {
+    int X - 0;                  // bad Dec
+    float Y;
+    magic boom;                 // bad TYPE
+    int a, b, c;
+  } xx                          // forget SEMI
+  int a = 0;
+  float Z = .5X;                // bad FLOAT
+  struct X foo = bar.bar.bar;
+  return 114514;
+  return 233333;
+  return 810810;
+  /* EXPLODE */*/               // strange comment
+  recover();
+  goodbye();
+}
+
+int BadStmt() {
+  while (1) { ; }               // empty Stmt
+  while (>=) {                  // bad Exp
+    i = i + 1;
+    x = 5 / 2 +;                // bad Exp
+  }
+  if (happy) {
+    X = array[4;                // forget RB
+    X = X + 1;
+  else {                        // forget RC
+    X = array[3][1];
+  }
+  if (lunatic) i = *;           // bad STAR
+  if (crazy) i = i + 1          // forget SEMI
+  else {
+    i = i[2,3] + 5;             // bad COMMA
+}}
+
+int BadDefsAndExps() {
+  struct abcabc, 89832ABC, "";  // bad DecList
+  int ok = ok;
+  int a = 0 + (*3333) - 5;      // bad Exp()
+  int b = argv[3][&2][(3)];     // bad Exp[]
+  int c = foobar(abd, *, 9a6c); // bad Args
+  int ok = ok;
+  a = isThisJavaScript ?? NULL; // unknown ??
+  b = isThisCPlusPlus.23333;    // not A ID
+}
+
+/************************************
+ * BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM *
+ ************************************
