@@ -1,6 +1,6 @@
 # compilers-tests
 
-编译原理 Lab1 一键测试脚本。  
+编译原理 Lab1 一键测试脚本。
 
 使用方法：  
 第一次运行执行 `./run.sh path_to_parser_binary` 。`path_to_parser_binary` 为编译好的 parser 文件。  
@@ -11,3 +11,13 @@
 # 添加测试文件
 在 `tests` 目录下添加 `yourtest.cmm` 和 `yourtest.out` 两个文件。  
 建议**每个文件只包含最多一个语法/词法错误**，因为测试脚本只会检查你的程序有没有报错。
+
+# 配置自动化测试
+
+前往仓库设置如下 secrets：
+
+1. `LAB_REPO` 实验代码仓库目录，如 username/reponame
+
+2. `GITHUB_PAT` GitHub Prosonal Access Token with repo access
+
+若不想启用功能，可进入 “设置->Action” 内禁用之。
