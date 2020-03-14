@@ -5,6 +5,11 @@ NC='\033[0m'
 BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
 
+if ! [ -z $1 ]
+then
+  rm ./workdir/saved_binary.sh 2> /dev/null
+fi
+
 RUN=$1
 
 if [ -e ./workdir/saved_binary.sh ]
@@ -34,7 +39,7 @@ for fcmm in ./tests/*.cmm; do
   cp $fcmm ./workdir/a.cmm
   cp ${fcmm%.cmm}.out ./workdir/a.out
 
-  $RUN ./workdir/a.cmm > ./workdir/b.out
+  $RUN ./workdir/a.cmm > ./workdir/b.out 2>&1
 
   if ./check.sh ./workdir/a.out ./workdir/b.out; then
     echo test [$(basename $fcmm)] matched
