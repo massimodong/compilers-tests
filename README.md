@@ -13,11 +13,12 @@
 建议**每个文件只包含最多一个语法/词法错误**，因为测试脚本只会检查你的程序有没有报错。
 
 # 配置自动化测试
+通过启用自动化测试，你可以每次有新测试数据的时候在 github 上自动地执行测试脚本。
 
 前往仓库设置如下 secrets：
 
-1. `LAB_REPO` 实验代码仓库目录，如 username/reponame
+1. `LAB_REPO` 编译器实验代码仓库目录，如 username/reponame
 
 2. `GITHUB_PAT` GitHub Prosonal Access Token with repo access
 
-若不想启用功能，可进入 “设置->Action” 内禁用之。
+若不想启用功能，进入 “设置->Action” 内禁用之。
