@@ -33,7 +33,7 @@ jobs:
 
       - name: Run Test
         run: |
-          chmod +x run.sh
+          chmod +x run_quiet.sh
           ./run_quiet.sh lab-codes/Code/parser | tee result.txt
 
 
