@@ -1,0 +1,177 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        TYPE: int
+      FunDec (2)
+        ID: jAU1qa
+        LP
+        RP
+      CompSt (2)
+        LC
+        StmtList (3)
+          Stmt (3)
+            WHILE
+            LP
+            Exp (4)
+              ID: BHUXp8P
+            RP
+            Stmt (4)
+              IF
+              LP
+              Exp (4)
+                MINUS
+                Exp (4)
+                  ID: DYEotwC
+                  LP
+                  RP
+              RP
+              Stmt (5)
+                WHILE
+                LP
+                Exp (5)
+                  Exp (5)
+                    NOT
+                    Exp (6)
+                      ID: FzY4W7sAf
+                  RELOP
+                  Exp (6)
+                    FLOAT: 818.068970
+                RP
+                Stmt (7)
+                  IF
+                  LP
+                  Exp (7)
+                    FLOAT: 30.010000
+                  RP
+                  Stmt (8)
+                    RETURN
+                    Exp (8)
+                      Exp (8)
+                        Exp (8)
+                          Exp (8)
+                            Exp (8)
+                              Exp (8)
+                                Exp (8)
+                                  ID: FWTyMUi2s
+                                MINUS
+                                Exp (8)
+                                  INT: 626
+                              AND
+                              Exp (9)
+                                LP
+                                Exp (10)
+                                  Exp (10)
+                                    Exp (10)
+                                      INT: 30206
+                                    DIV
+                                    Exp (10)
+                                      ID: Repkke
+                                  AND
+                                  Exp (11)
+                                    INT: 1615
+                                RP
+                            OR
+                            Exp (13)
+                              Exp (13)
+                                LP
+                                Exp (13)
+                                  Exp (13)
+                                    ID: y6thMt7
+                                  OR
+                                  Exp (14)
+                                    FLOAT: 7289411177486294716652639588024582144.000000
+                                RP
+                              PLUS
+                              Exp (17)
+                                FLOAT: 66.637001
+                          OR
+                          Exp (18)
+                            INT: 23816
+                        OR
+                        Exp (18)
+                          ID: _KR2RO
+                      ASSIGNOP
+                      Exp (19)
+                        Exp (19)
+                          Exp (19)
+                            NOT
+                            Exp (20)
+                              FLOAT: inf
+                          PLUS
+                          Exp (21)
+                            NOT
+                            Exp (22)
+                              ID: h_quunM6
+                        OR
+                        Exp (23)
+                          Exp (23)
+                            Exp (23)
+                              Exp (23)
+                                INT: 12108
+                              STAR
+                              Exp (24)
+                                MINUS
+                                Exp (24)
+                                  NOT
+                                  Exp (24)
+                                    MINUS
+                                    Exp (24)
+                                      Exp (24)
+                                        FLOAT: inf
+                                      DOT
+                                      ID: IrYu_Hb
+                            RELOP
+                            Exp (26)
+                              Exp (26)
+                                FLOAT: inf
+                              STAR
+                              Exp (27)
+                                ID: bCHG5ADy0ap
+                          AND
+                          Exp (28)
+                            Exp (28)
+                              MINUS
+                              Exp (28)
+                                LP
+                                Exp (28)
+                                  INT: 204
+                                RP
+                            RELOP
+                            Exp (30)
+                              INT: 3210
+                    SEMI
+        RC
+    ExtDefList (31)
+      ExtDef (31)
+        Specifier (31)
+          TYPE: int
+        SEMI
+      ExtDefList (32)
+        ExtDef (32)
+          Specifier (32)
+            TYPE: float
+          ExtDecList (32)
+            VarDec (32)
+              ID: Ex6nF
+            COMMA
+            ExtDecList (32)
+              VarDec (32)
+                VarDec (32)
+                  VarDec (32)
+                    ID: F1VpwkTX
+                  LB
+                  INT: 6952
+                  RB
+                LB
+                INT: 198
+                RB
+              COMMA
+              ExtDecList (37)
+                VarDec (37)
+                  VarDec (37)
+                    ID: GPbSwVaiNV
+                  LB
+                  INT: 355
+                  RB
+          SEMI

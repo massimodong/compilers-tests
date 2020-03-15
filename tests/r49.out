@@ -1,0 +1,113 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        TYPE: int
+      ExtDecList (1)
+        VarDec (1)
+          ID: HLG
+        COMMA
+        ExtDecList (2)
+          VarDec (2)
+            VarDec (2)
+              VarDec (2)
+                VarDec (2)
+                  ID: AgW9iY
+                LB
+                INT: 65276
+                RB
+              LB
+              INT: 471
+              RB
+            LB
+            INT: 10918
+            RB
+          COMMA
+          ExtDecList (6)
+            VarDec (6)
+              VarDec (6)
+                ID: EcwA0pB84
+              LB
+              INT: 2798
+              RB
+      SEMI
+    ExtDefList (8)
+      ExtDef (8)
+        Specifier (8)
+          StructSpecifier (8)
+            STRUCT
+            Tag (8)
+              ID: BupJaF
+        FunDec (8)
+          ID: PoVc00rW
+          LP
+          VarList (9)
+            ParamDec (9)
+              Specifier (9)
+                StructSpecifier (9)
+                  STRUCT
+                  LC
+                  RC
+              VarDec (12)
+                ID: mzVZxpkj
+            COMMA
+            VarList (13)
+              ParamDec (13)
+                Specifier (13)
+                  StructSpecifier (13)
+                    STRUCT
+                    Tag (14)
+                      ID: s0WgRuOW
+                VarDec (15)
+                  ID: okaEqreE
+          RP
+        CompSt (16)
+          LC
+          StmtList (17)
+            Stmt (17)
+              CompSt (17)
+                LC
+                StmtList (17)
+                  Stmt (17)
+                    Exp (17)
+                      Exp (17)
+                        Exp (17)
+                          MINUS
+                          Exp (17)
+                            ID: bw0KUA6pyC
+                        AND
+                        Exp (17)
+                          ID: hhiuSokb
+                          LP
+                          RP
+                      ASSIGNOP
+                      Exp (19)
+                        Exp (19)
+                          MINUS
+                          Exp (19)
+                            ID: zAFVcD
+                        MINUS
+                        Exp (20)
+                          LP
+                          Exp (21)
+                            ID: DZSP8
+                          RP
+                    SEMI
+                  StmtList (21)
+                    Stmt (21)
+                      CompSt (21)
+                        LC
+                        StmtList (22)
+                          Stmt (22)
+                            RETURN
+                            Exp (23)
+                              FLOAT: 182.660004
+                            SEMI
+                        RC
+                RC
+          RC
+      ExtDefList (24)
+        ExtDef (24)
+          Specifier (24)
+            TYPE: float
+          SEMI

@@ -1,0 +1,209 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        StructSpecifier (1)
+          STRUCT
+          OptTag (2)
+            ID: _SCKw
+          LC
+          DefList (3)
+            Def (3)
+              Specifier (3)
+                TYPE: float
+              DecList (3)
+                Dec (3)
+                  VarDec (3)
+                    VarDec (3)
+                      ID: Y5kYI_Lj0E
+                    LB
+                    INT: 3667
+                    RB
+                COMMA
+                DecList (3)
+                  Dec (3)
+                    VarDec (3)
+                      VarDec (3)
+                        VarDec (3)
+                          ID: NNnDq
+                        LB
+                        INT: 30
+                        RB
+                      LB
+                      INT: 15
+                      RB
+                  COMMA
+                  DecList (7)
+                    Dec (7)
+                      VarDec (7)
+                        VarDec (7)
+                          VarDec (7)
+                            ID: lAzn3sITOi
+                          LB
+                          INT: 7226
+                          RB
+                        LB
+                        INT: 2234
+                        RB
+                      ASSIGNOP
+                      Exp (11)
+                        Exp (11)
+                          ID: XtvhO
+                        DIV
+                        Exp (13)
+                          FLOAT: 41.759998
+                    COMMA
+                    DecList (14)
+                      Dec (14)
+                        VarDec (14)
+                          ID: SrbjzzHH6f
+                        ASSIGNOP
+                        Exp (16)
+                          ID: W4XiHRfh5
+                          LP
+                          Args (17)
+                            Exp (17)
+                              INT: 129
+                            COMMA
+                            Args (18)
+                              Exp (18)
+                                Exp (18)
+                                  Exp (18)
+                                    MINUS
+                                    Exp (19)
+                                      ID: N5PqBon
+                                  DIV
+                                  Exp (20)
+                                    MINUS
+                                    Exp (21)
+                                      NOT
+                                      Exp (21)
+                                        INT: 186580
+                                ASSIGNOP
+                                Exp (23)
+                                  Exp (23)
+                                    ID: SuJPVU
+                                    LP
+                                    RP
+                                  ASSIGNOP
+                                  Exp (23)
+                                    Exp (23)
+                                      ID: ofBuvc9
+                                    LB
+                                    Exp (24)
+                                      Exp (24)
+                                        Exp (24)
+                                          Exp (24)
+                                            FLOAT: inf
+                                          MINUS
+                                          Exp (26)
+                                            INT: 227
+                                        MINUS
+                                        Exp (26)
+                                          Exp (26)
+                                            ID: hM2La
+                                          STAR
+                                          Exp (28)
+                                            INT: 28703
+                                      ASSIGNOP
+                                      Exp (30)
+                                        FLOAT: 3.500000
+                                    RB
+                          RP
+              SEMI
+          RC
+      SEMI
+    ExtDefList (31)
+      ExtDef (31)
+        Specifier (31)
+          TYPE: int
+        FunDec (32)
+          ID: zn1Te
+          LP
+          VarList (32)
+            ParamDec (32)
+              Specifier (32)
+                TYPE: float
+              VarDec (33)
+                VarDec (33)
+                  VarDec (33)
+                    ID: CCUrjod9V0
+                  LB
+                  INT: 2
+                  RB
+                LB
+                INT: 1356
+                RB
+          RP
+        CompSt (38)
+          LC
+          StmtList (39)
+            Stmt (39)
+              RETURN
+              Exp (40)
+                ID: SV5oi4ZkW
+                LP
+                RP
+              SEMI
+          RC
+      ExtDefList (42)
+        ExtDef (42)
+          Specifier (42)
+            StructSpecifier (42)
+              STRUCT
+              OptTag (43)
+                ID: OcdGAjUh
+              LC
+              RC
+          ExtDecList (43)
+            VarDec (43)
+              VarDec (43)
+                ID: KTTx_Ccg
+              LB
+              INT: 1197
+              RB
+            COMMA
+            ExtDecList (45)
+              VarDec (45)
+                ID: VfR8Y3
+              COMMA
+              ExtDecList (45)
+                VarDec (45)
+                  ID: DRWR_lt
+                COMMA
+                ExtDecList (46)
+                  VarDec (46)
+                    VarDec (46)
+                      VarDec (46)
+                        VarDec (46)
+                          VarDec (46)
+                            ID: wqSxcv
+                          LB
+                          INT: 8668
+                          RB
+                        LB
+                        INT: 31888
+                        RB
+                      LB
+                      INT: 7122
+                      RB
+                    LB
+                    INT: 12985
+                    RB
+                  COMMA
+                  ExtDecList (50)
+                    VarDec (50)
+                      ID: lE0PiizhM
+                    COMMA
+                    ExtDecList (50)
+                      VarDec (50)
+                        VarDec (50)
+                          ID: Y63U2_QH
+                        LB
+                        INT: 168
+                        RB
+                      COMMA
+                      ExtDecList (54)
+                        VarDec (54)
+                          ID: LQVn9H
+          SEMI
