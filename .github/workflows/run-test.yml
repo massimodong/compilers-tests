@@ -10,8 +10,7 @@ on:
 env:
   LAB_REP: zhengzangw/C--_Compiler
   LAB_NAME: Lab
-  LAB_PATH: $LAB_NAME/Lab1/Code
-  EXE_PATH: $LAB_PATH/parser
+  LAB_PATH: Lab/Lab1/Code
 
 jobs:
   test:
@@ -28,9 +27,9 @@ jobs:
       - name: Checkout Lab Codes
         uses: actions/checkout@v2
         with:
-          repository: $LAB_REPO
+          repository: ${{ LAB_REPO }}
           token: ${{ secrets.GITHUB_PAT }}
-          path: $LAB_NAME
+          path: ${{ LAB_NAME }}
 
       - name: Build Lab Binary
         run: |
@@ -40,7 +39,7 @@ jobs:
       - name: Run Test
         run: |
           chmod +x run_quiet.sh
-          ./run_quiet.sh $EXE_PATH | tee result.txt
+          ./run_quiet.sh $LAB_PATH/parser | tee result.txt
 
 
       - name: Upload Result
