@@ -7,6 +7,12 @@ on:
       - "tests/**"
       - "*.sh"
 
+env:
+  LAB_REP: zhengzangw/C--_Compiler
+  LAB_NAME: Lab
+  LAB_PATH: $LAB_NAME/Lab1/Code
+  EXE_PATH: $LAB_PATH/parser
+
 jobs:
   test:
     runs-on: ubuntu-18.04
@@ -22,20 +28,19 @@ jobs:
       - name: Checkout Lab Codes
         uses: actions/checkout@v2
         with:
-          repository: ${{ secrets.LAB_REPO }}
+          repository: $LAB_REPO
           token: ${{ secrets.GITHUB_PAT }}
-          path: lab-codes
+          path: $LAB_NAME
 
       - name: Build Lab Binary
         run: |
-          cd lab-codes/Lab1/Code
+          cd $LAB_PATH
           make parser
-          chmod +x parser
 
       - name: Run Test
         run: |
           chmod +x run_quiet.sh
-          ./run_quiet.sh lab-codes/Code/parser | tee result.txt
+          ./run_quiet.sh $EXE_PATH | tee result.txt
 
 
       - name: Upload Result
