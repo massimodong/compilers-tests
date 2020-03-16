@@ -6,10 +6,10 @@ then
   exit 1;
 fi
 
-RED='\033[0;31m'
-NC='\033[0m'
-BOLD=$(tput bold)
-NORMAL=$(tput sgr0)
+RED=''
+NC=''
+BOLD=''
+NORMAL=''
 
 FL1=$(head -1 $1)
 FL2=$(head -1 $2)
