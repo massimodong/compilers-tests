@@ -1,0 +1,318 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        TYPE: int
+      SEMI
+    ExtDefList (2)
+      ExtDef (2)
+        Specifier (2)
+          StructSpecifier (2)
+            STRUCT
+            OptTag (2)
+              ID: p4pQf
+            LC
+            RC
+        SEMI
+      ExtDefList (5)
+        ExtDef (5)
+          Specifier (5)
+            StructSpecifier (5)
+              STRUCT
+              Tag (5)
+                ID: vklSWJl
+          SEMI
+        ExtDefList (6)
+          ExtDef (6)
+            Specifier (6)
+              TYPE: float
+            FunDec (6)
+              ID: _Wy55I72X
+              LP
+              RP
+            CompSt (6)
+              LC
+              DefList (7)
+                Def (7)
+                  Specifier (7)
+                    TYPE: float
+                  DecList (7)
+                    Dec (7)
+                      VarDec (7)
+                        ID: bSr4OJ6h
+                      ASSIGNOP
+                      Exp (7)
+                        FLOAT: 29600.000000
+                  SEMI
+                DefList (8)
+                  Def (8)
+                    Specifier (8)
+                      TYPE: int
+                    DecList (8)
+                      Dec (8)
+                        VarDec (8)
+                          ID: C368jfsbA
+                      COMMA
+                      DecList (8)
+                        Dec (8)
+                          VarDec (8)
+                            VarDec (8)
+                              VarDec (8)
+                                ID: UHmcIfD
+                              LB
+                              INT: 3366
+                              RB
+                            LB
+                            INT: 146837
+                            RB
+                          ASSIGNOP
+                          Exp (8)
+                            Exp (8)
+                              ID: zb8tBJQ8vb
+                            ASSIGNOP
+                            Exp (8)
+                              Exp (8)
+                                Exp (8)
+                                  INT: 4014
+                                PLUS
+                                Exp (8)
+                                  MINUS
+                                  Exp (8)
+                                    INT: 356
+                              ASSIGNOP
+                              Exp (8)
+                                Exp (8)
+                                  LP
+                                  Exp (8)
+                                    FLOAT: 66.089996
+                                  RP
+                                RELOP
+                                Exp (8)
+                                  FLOAT: 430.799988
+                    SEMI
+              StmtList (9)
+                Stmt (9)
+                  RETURN
+                  Exp (9)
+                    Exp (9)
+                      NOT
+                      Exp (9)
+                        LP
+                        Exp (9)
+                          Exp (9)
+                            Exp (9)
+                              INT: 3547
+                            PLUS
+                            Exp (9)
+                              FLOAT: 6680.000000
+                          ASSIGNOP
+                          Exp (9)
+                            FLOAT: 4.800000
+                        RP
+                    ASSIGNOP
+                    Exp (9)
+                      Exp (9)
+                        MINUS
+                        Exp (9)
+                          INT: 221
+                      DIV
+                      Exp (9)
+                        MINUS
+                        Exp (9)
+                          FLOAT: 194520.000000
+                  SEMI
+                StmtList (10)
+                  Stmt (10)
+                    IF
+                    LP
+                    Exp (10)
+                      Exp (10)
+                        Exp (10)
+                          LP
+                          Exp (10)
+                            Exp (10)
+                              FLOAT: 32.018002
+                            PLUS
+                            Exp (10)
+                              INT: 94735
+                          RP
+                        OR
+                        Exp (10)
+                          Exp (10)
+                            FLOAT: 29.368999
+                          RELOP
+                          Exp (10)
+                            Exp (10)
+                              FLOAT: 3580.000000
+                            PLUS
+                            Exp (10)
+                              Exp (10)
+                                MINUS
+                                Exp (10)
+                                  ID: fqNSCVKJ
+                                  LP
+                                  RP
+                              STAR
+                              Exp (10)
+                                ID: DufM8LT3C
+                      ASSIGNOP
+                      Exp (10)
+                        Exp (10)
+                          Exp (10)
+                            Exp (10)
+                              FLOAT: 480.799988
+                            PLUS
+                            Exp (10)
+                              ID: OKRsmg
+                              LP
+                              Args (10)
+                                Exp (10)
+                                  Exp (10)
+                                    FLOAT: 4022000128.000000
+                                  DOT
+                                  ID: e0GoNaJ7
+                                COMMA
+                                Args (10)
+                                  Exp (10)
+                                    ID: SCKQnqi_
+                              RP
+                          RELOP
+                          Exp (10)
+                            INT: 60
+                        AND
+                        Exp (10)
+                          Exp (10)
+                            Exp (10)
+                              FLOAT: 348.399994
+                            LB
+                            Exp (10)
+                              Exp (10)
+                                ID: O2iLg9
+                              OR
+                              Exp (10)
+                                Exp (10)
+                                  ID: gL54HUW
+                                LB
+                                Exp (10)
+                                  INT: 5271
+                                RB
+                            RB
+                          DOT
+                          ID: Jdcvj
+                    RP
+                    Stmt (10)
+                      Exp (10)
+                        FLOAT: 4.700000
+                      SEMI
+                    ELSE
+                    Stmt (11)
+                      Exp (11)
+                        ID: ZGEBX11atB
+                      SEMI
+                  StmtList (12)
+                    Stmt (12)
+                      Exp (12)
+                        FLOAT: 0.000000
+                      SEMI
+                    StmtList (13)
+                      Stmt (13)
+                        Exp (13)
+                          Exp (13)
+                            MINUS
+                            Exp (13)
+                              ID: zIKI_Q
+                          OR
+                          Exp (13)
+                            Exp (13)
+                              ID: NsrrmG7
+                              LP
+                              Args (13)
+                                Exp (13)
+                                  Exp (13)
+                                    Exp (13)
+                                      Exp (13)
+                                        Exp (13)
+                                          FLOAT: 91.999001
+                                        DIV
+                                        Exp (13)
+                                          INT: 50357
+                                      RELOP
+                                      Exp (13)
+                                        INT: 38624
+                                    RELOP
+                                    Exp (13)
+                                      Exp (13)
+                                        ID: ti7KzEMz
+                                      DOT
+                                      ID: JElNLWDn
+                                  ASSIGNOP
+                                  Exp (13)
+                                    ID: et5VM_SzLY
+                                    LP
+                                    RP
+                                COMMA
+                                Args (13)
+                                  Exp (13)
+                                    INT: 15204
+                                  COMMA
+                                  Args (13)
+                                    Exp (13)
+                                      INT: 1807
+                                    COMMA
+                                    Args (13)
+                                      Exp (13)
+                                        FLOAT: 547.945984
+                                      COMMA
+                                      Args (13)
+                                        Exp (13)
+                                          FLOAT: 48.453999
+                                        COMMA
+                                        Args (13)
+                                          Exp (13)
+                                            FLOAT: 4.350000
+                              RP
+                            LB
+                            Exp (13)
+                              Exp (13)
+                                MINUS
+                                Exp (13)
+                                  FLOAT: 1.044000
+                              PLUS
+                              Exp (13)
+                                FLOAT: 22612.199219
+                            RB
+                        SEMI
+                      StmtList (14)
+                        Stmt (14)
+                          CompSt (14)
+                            LC
+                            StmtList (15)
+                              Stmt (15)
+                                WHILE
+                                LP
+                                Exp (15)
+                                  Exp (15)
+                                    INT: 176
+                                  RELOP
+                                  Exp (15)
+                                    ID: ISRVr6MiEk
+                                RP
+                                Stmt (15)
+                                  Exp (15)
+                                    FLOAT: 102.190002
+                                  SEMI
+                            RC
+                        StmtList (17)
+                          Stmt (17)
+                            Exp (17)
+                              ID: bh9d1B1K
+                            SEMI
+              RC
+          ExtDefList (19)
+            ExtDef (19)
+              Specifier (19)
+                StructSpecifier (19)
+                  STRUCT
+                  Tag (19)
+                    ID: wNLzKrCtZ
+              SEMI

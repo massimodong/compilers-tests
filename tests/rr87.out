@@ -1,0 +1,147 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        StructSpecifier (1)
+          STRUCT
+          LC
+          RC
+      ExtDecList (3)
+        VarDec (3)
+          ID: ouBkK
+        COMMA
+        ExtDecList (3)
+          VarDec (3)
+            ID: VzVGS9H
+      SEMI
+    ExtDefList (4)
+      ExtDef (4)
+        Specifier (4)
+          StructSpecifier (4)
+            STRUCT
+            Tag (4)
+              ID: V0axZ3L9v
+        FunDec (4)
+          ID: KRtJSvEg
+          LP
+          VarList (4)
+            ParamDec (4)
+              Specifier (4)
+                StructSpecifier (4)
+                  STRUCT
+                  Tag (4)
+                    ID: jIp6j2b
+              VarDec (4)
+                VarDec (4)
+                  ID: iz2Zxixp9dP
+                LB
+                INT: 2759
+                RB
+            COMMA
+            VarList (4)
+              ParamDec (4)
+                Specifier (4)
+                  TYPE: float
+                VarDec (4)
+                  ID: jniRrXXpm
+              COMMA
+              VarList (4)
+                ParamDec (4)
+                  Specifier (4)
+                    TYPE: float
+                  VarDec (4)
+                    ID: yPc5LMuy
+          RP
+        CompSt (4)
+          LC
+          StmtList (5)
+            Stmt (5)
+              Exp (5)
+                Exp (5)
+                  ID: WBWa5uyiD
+                  LP
+                  Args (5)
+                    Exp (5)
+                      ID: c3O8w05e5
+                      LP
+                      Args (5)
+                        Exp (5)
+                          Exp (5)
+                            INT: 8472
+                          ASSIGNOP
+                          Exp (5)
+                            ID: btGzGn2H0VtjW
+                      RP
+                    COMMA
+                    Args (5)
+                      Exp (5)
+                        FLOAT: 556.822021
+                      COMMA
+                      Args (5)
+                        Exp (5)
+                          ID: ZzVWZF4f
+                        COMMA
+                        Args (5)
+                          Exp (5)
+                            ID: mPP41s88rd7
+                  RP
+                LB
+                Exp (5)
+                  Exp (5)
+                    INT: 3170
+                  STAR
+                  Exp (5)
+                    FLOAT: 4153.000000
+                RB
+              SEMI
+          RC
+      ExtDefList (7)
+        ExtDef (7)
+          Specifier (7)
+            TYPE: float
+          FunDec (7)
+            ID: WDnkCluI1
+            LP
+            VarList (7)
+              ParamDec (7)
+                Specifier (7)
+                  TYPE: int
+                VarDec (7)
+                  ID: JD4u0XF
+            RP
+          CompSt (7)
+            LC
+            StmtList (8)
+              Stmt (8)
+                RETURN
+                Exp (8)
+                  FLOAT: 5173.741211
+                SEMI
+              StmtList (9)
+                Stmt (9)
+                  IF
+                  LP
+                  Exp (9)
+                    MINUS
+                    Exp (9)
+                      FLOAT: 0.004367
+                  RP
+                  Stmt (9)
+                    WHILE
+                    LP
+                    Exp (9)
+                      ID: QdCW9_f
+                      LP
+                      Args (9)
+                        Exp (9)
+                          LP
+                          Exp (9)
+                            INT: 7
+                          RP
+                      RP
+                    RP
+                    Stmt (9)
+                      Exp (9)
+                        INT: 348
+                      SEMI
+            RC

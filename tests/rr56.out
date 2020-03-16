@@ -1,0 +1,32 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        TYPE: int
+      SEMI
+    ExtDefList (2)
+      ExtDef (2)
+        Specifier (2)
+          TYPE: int
+        ExtDecList (2)
+          VarDec (2)
+            ID: nAAhFztw1B4
+          COMMA
+          ExtDecList (2)
+            VarDec (2)
+              ID: RElG95AmM
+            COMMA
+            ExtDecList (2)
+              VarDec (2)
+                ID: tKw1szk
+        SEMI
+      ExtDefList (3)
+        ExtDef (3)
+          Specifier (3)
+            StructSpecifier (3)
+              STRUCT
+              OptTag (3)
+                ID: ivHLcVe
+              LC
+              RC
+          SEMI

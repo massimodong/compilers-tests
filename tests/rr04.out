@@ -1,0 +1,87 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        StructSpecifier (1)
+          STRUCT
+          Tag (1)
+            ID: lo_mAc5j
+      ExtDecList (1)
+        VarDec (1)
+          ID: UBCm0
+      SEMI
+    ExtDefList (2)
+      ExtDef (2)
+        Specifier (2)
+          TYPE: float
+        FunDec (2)
+          ID: vGao5eCZ
+          LP
+          RP
+        CompSt (2)
+          LC
+          StmtList (3)
+            Stmt (3)
+              WHILE
+              LP
+              Exp (3)
+                ID: uDHjIoO2
+              RP
+              Stmt (3)
+                Exp (3)
+                  Exp (3)
+                    ID: RFfiTcpwd8
+                  ASSIGNOP
+                  Exp (3)
+                    Exp (3)
+                      ID: tvBgGJPrWi
+                      LP
+                      RP
+                    MINUS
+                    Exp (3)
+                      ID: EkwP1fdxj
+                      LP
+                      RP
+                SEMI
+            StmtList (4)
+              Stmt (4)
+                Exp (4)
+                  INT: 234
+                SEMI
+          RC
+      ExtDefList (6)
+        ExtDef (6)
+          Specifier (6)
+            StructSpecifier (6)
+              STRUCT
+              LC
+              DefList (7)
+                Def (7)
+                  Specifier (7)
+                    StructSpecifier (7)
+                      STRUCT
+                      LC
+                      RC
+                  DecList (9)
+                    Dec (9)
+                      VarDec (9)
+                        ID: ZfoyP
+                  SEMI
+              RC
+          ExtDecList (11)
+            VarDec (11)
+              ID: vsyUtYw6
+            COMMA
+            ExtDecList (11)
+              VarDec (11)
+                VarDec (11)
+                  ID: t21MIg6U
+                LB
+                INT: 229
+                RB
+          SEMI
+        ExtDefList (12)
+          ExtDef (12)
+            Specifier (12)
+              TYPE: int
+            SEMI
