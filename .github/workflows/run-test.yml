@@ -29,6 +29,7 @@ jobs:
       - name: Build Lab Binary
         run: |
           cd lab-codes/Lab1/Code
+          chmod +x parser
           make parser
 
       - name: Run Test
