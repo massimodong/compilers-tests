@@ -21,6 +21,8 @@ for fcmm in ./tests/*.cmm; do
   cp $fcmm ./workdir/a.cmm
   cp ${fcmm%.cmm}.out ./workdir/a.out
 
+  echo "testing $fcmm"
+
   $RUN ./workdir/a.cmm > ./workdir/b.out 2>&1
 
   if ./check.sh ./workdir/a.out ./workdir/b.out; then
