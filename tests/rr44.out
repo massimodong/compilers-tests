@@ -1,0 +1,45 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        TYPE: float
+      ExtDecList (1)
+        VarDec (1)
+          VarDec (1)
+            VarDec (1)
+              VarDec (1)
+                VarDec (1)
+                  ID: _5Putcv
+                LB
+                INT: 3346
+                RB
+              LB
+              INT: 351
+              RB
+            LB
+            INT: 194
+            RB
+          LB
+          INT: 51914
+          RB
+      SEMI
+    ExtDefList (2)
+      ExtDef (2)
+        Specifier (2)
+          TYPE: int
+        SEMI
+      ExtDefList (3)
+        ExtDef (3)
+          Specifier (3)
+            TYPE: int
+          SEMI
+        ExtDefList (4)
+          ExtDef (4)
+            Specifier (4)
+              StructSpecifier (4)
+                STRUCT
+                OptTag (4)
+                  ID: u_R61RwJVW
+                LC
+                RC
+            SEMI

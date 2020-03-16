@@ -1,0 +1,126 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        TYPE: float
+      SEMI
+    ExtDefList (2)
+      ExtDef (2)
+        Specifier (2)
+          StructSpecifier (2)
+            STRUCT
+            Tag (2)
+              ID: IWxsqwb
+        ExtDecList (2)
+          VarDec (2)
+            VarDec (2)
+              VarDec (2)
+                ID: zWSt_q
+              LB
+              INT: 158
+              RB
+            LB
+            INT: 609534
+            RB
+          COMMA
+          ExtDecList (2)
+            VarDec (2)
+              VarDec (2)
+                VarDec (2)
+                  ID: Quw0ImyBI
+                LB
+                INT: 2957
+                RB
+              LB
+              INT: 831228
+              RB
+        SEMI
+      ExtDefList (3)
+        ExtDef (3)
+          Specifier (3)
+            StructSpecifier (3)
+              STRUCT
+              LC
+              RC
+          ExtDecList (5)
+            VarDec (5)
+              ID: VUec1fp
+          SEMI
+        ExtDefList (6)
+          ExtDef (6)
+            Specifier (6)
+              TYPE: int
+            FunDec (6)
+              ID: JCsLPJ2r
+              LP
+              VarList (6)
+                ParamDec (6)
+                  Specifier (6)
+                    StructSpecifier (6)
+                      STRUCT
+                      Tag (6)
+                        ID: UhVZmB229p
+                  VarDec (6)
+                    ID: ONwnl
+                COMMA
+                VarList (6)
+                  ParamDec (6)
+                    Specifier (6)
+                      TYPE: float
+                    VarDec (6)
+                      ID: p_ACyur
+              RP
+            CompSt (6)
+              LC
+              StmtList (7)
+                Stmt (7)
+                  RETURN
+                  Exp (7)
+                    Exp (7)
+                      ID: ZL88vPie
+                    STAR
+                    Exp (7)
+                      FLOAT: 0.000006
+                  SEMI
+                StmtList (8)
+                  Stmt (8)
+                    Exp (8)
+                      ID: XnJnwn8kP
+                      LP
+                      Args (8)
+                        Exp (8)
+                          Exp (8)
+                            Exp (8)
+                              INT: 91117
+                            DIV
+                            Exp (8)
+                              INT: 4081
+                          MINUS
+                          Exp (8)
+                            FLOAT: 2112600064.000000
+                        COMMA
+                        Args (8)
+                          Exp (8)
+                            FLOAT: 26.770000
+                          COMMA
+                          Args (8)
+                            Exp (8)
+                              INT: 231066
+                      RP
+                    SEMI
+                  StmtList (9)
+                    Stmt (9)
+                      IF
+                      LP
+                      Exp (9)
+                        ID: lHAgdmu4
+                        LP
+                        RP
+                      RP
+                      Stmt (9)
+                        Exp (9)
+                          NOT
+                          Exp (9)
+                            INT: 29151
+                        SEMI
+              RC

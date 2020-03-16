@@ -1,0 +1,124 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        StructSpecifier (1)
+          STRUCT
+          Tag (1)
+            ID: Z53_A503
+      FunDec (1)
+        ID: Df4yLrzOT
+        LP
+        VarList (1)
+          ParamDec (1)
+            Specifier (1)
+              TYPE: int
+            VarDec (1)
+              ID: IggNXIA
+        RP
+      CompSt (1)
+        LC
+        StmtList (2)
+          Stmt (2)
+            Exp (2)
+              Exp (2)
+                FLOAT: 182860.000000
+              ASSIGNOP
+              Exp (2)
+                Exp (2)
+                  INT: 2033
+                RELOP
+                Exp (2)
+                  ID: Xv0ygN
+            SEMI
+          StmtList (3)
+            Stmt (3)
+              Exp (3)
+                Exp (3)
+                  Exp (3)
+                    Exp (3)
+                      Exp (3)
+                        INT: 254
+                      LB
+                      Exp (3)
+                        FLOAT: 0.410000
+                      RB
+                    RELOP
+                    Exp (3)
+                      Exp (3)
+                        Exp (3)
+                          Exp (3)
+                            ID: n8oLn8W
+                          DIV
+                          Exp (3)
+                            INT: 1151
+                        STAR
+                        Exp (3)
+                          FLOAT: 253.943207
+                      DIV
+                      Exp (3)
+                        ID: Dy_1lA
+                  AND
+                  Exp (3)
+                    Exp (3)
+                      Exp (3)
+                        NOT
+                        Exp (3)
+                          NOT
+                          Exp (3)
+                            Exp (3)
+                              INT: 23501
+                            LB
+                            Exp (3)
+                              FLOAT: 628.309998
+                            RB
+                      STAR
+                      Exp (3)
+                        FLOAT: 72740.000000
+                    STAR
+                    Exp (3)
+                      FLOAT: 0.006731
+                ASSIGNOP
+                Exp (3)
+                  NOT
+                  Exp (3)
+                    FLOAT: 0.000063
+              SEMI
+            StmtList (4)
+              Stmt (4)
+                RETURN
+                Exp (4)
+                  ID: ZYtDlY
+                SEMI
+              StmtList (5)
+                Stmt (5)
+                  Exp (5)
+                    ID: i3p9k0
+                  SEMI
+                StmtList (6)
+                  Stmt (6)
+                    Exp (6)
+                      INT: 8
+                    SEMI
+        RC
+    ExtDefList (8)
+      ExtDef (8)
+        Specifier (8)
+          TYPE: int
+        SEMI
+      ExtDefList (9)
+        ExtDef (9)
+          Specifier (9)
+            TYPE: int
+          ExtDecList (9)
+            VarDec (9)
+              ID: OAE61ljQ8J
+            COMMA
+            ExtDecList (9)
+              VarDec (9)
+                VarDec (9)
+                  ID: mMSRZX
+                LB
+                INT: 48
+                RB
+          SEMI
