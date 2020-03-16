@@ -358,7 +358,7 @@ Program (1)
                           DIV
                           Exp (13)
                             Exp (13)
-                              INT: 8
+                              ID: a
                             DOT
                             ID: e
                         MINUS
