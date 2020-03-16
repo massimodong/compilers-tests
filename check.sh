@@ -14,8 +14,6 @@ NORMAL=''
 FL1=$(head -1 $1)
 FL2=$(head -1 $2)
 
-echo "before"
-
 if [ ${FL1:0:1} == 'P' ] ## Starts with 'P', parse ok
 then
   if diff $1 $2 > /dev/null; then
