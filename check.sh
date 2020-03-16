@@ -37,5 +37,3 @@ else ## parse failed
     exit 0;
   fi
 fi
-
-echo "after"

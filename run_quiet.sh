@@ -25,6 +25,8 @@ for fcmm in ./tests/*.cmm; do
 
   $RUN ./workdir/a.cmm > ./workdir/b.out 2>&1
 
+  echo "finish $fcmm"
+
   if ./check.sh ./workdir/a.out ./workdir/b.out; then
     echo test [$(basename $fcmm)] matched
   else
