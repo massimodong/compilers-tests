@@ -28,7 +28,7 @@ for fcmm in ./tests/*.cmm; do
   else
     echo -e "test [$(basename $fcmm)] mismatch"
     diff ./workdir/a.out ./workdir/b.out | head -10
-    $CODE=-1
+    CODE=-1
   fi
 done
 
