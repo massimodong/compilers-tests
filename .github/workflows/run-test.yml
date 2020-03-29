@@ -31,7 +31,7 @@ jobs:
       - name: Run Test
         run: |
           chmod +x autotest.sh
-          ./autotest.sh parser | tee result.txt
+          ./autotest.sh Lab/parser | tee result.txt
 
       - name: Upload Result
         uses: actions/upload-artifact@v1
