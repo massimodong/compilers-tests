@@ -7,9 +7,6 @@ on:
       - "tests/**"
       - "*.sh"
 
-env:
-  LAB_PATH: Lab/Lab1/Code
-
 jobs:
   test:
     runs-on: ubuntu-18.04
@@ -33,13 +30,13 @@ jobs:
 
       - name: Build Lab Binary
         run: |
-          cd $LAB_PATH
+          cd Lab
           make parser
 
       - name: Run Test
         run: |
-          chmod +x run_quiet.sh
-          ./run_quiet.sh $LAB_PATH/parser | tee result.txt
+          chmod +x autotest.sh
+          ./autotest.sh parser | tee result.txt
 
       - name: Upload Result
         uses: actions/upload-artifact@v1
