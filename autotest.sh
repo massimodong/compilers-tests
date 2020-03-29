@@ -11,12 +11,13 @@ script_path=$(dirname "$0")
 workdir=${script_path}/workdir
 test_prefix=${script_path}/tests/test
 check_prefix=${script_path}/checks/check
+NAME=""
 
 usage() {
 	echo "Usage: $(basename $0) [-h] [-q] [parser]"
 }
 
-set -- $(getopt -n autotest.sh -o qht: -l quiet,help,test: -u -- "$@")
+set -- $(getopt -n autotest.sh -o qht:n: -l quiet,help,test:,name: -u -- "$@")
 
 if [ $? -ne 0 ]; then
 	usage
@@ -35,6 +36,10 @@ while true; do
 		;;
 	-t | --test)
 		TEST_NUM=$2
+		shift 2
+		;;
+	-n | --name)
+		NAME=$2
 		shift 2
 		;;
 	--)
@@ -79,8 +84,34 @@ fi
 
 # Test
 CODE=0
-for fcmm in ${testdir}/*.cmm; do
+TEST_SET=${testdir}/*.cmm
+if [[ -n $NAME ]]; then
+	TEST_SET=${testdir}/${NAME}.cmm
+	if ! [[ -f $TEST_SET ]]; then
+		echo -e "${RED}${BOLD}Test [$(basename $TEST_SET)] not exists${NC}${NORMAL}"
+		exit -1
+	fi
+	QUIET=true
+fi
+if [[ -z "$(ls -A $testdir)" ]]; then
+	echo -e "${RED}${BOLD}Test-set \"$(basename $testdir)\" contains no files${NC}${NORMAL}"
+	exit -1
+fi
+for fcmm in $TEST_SET; do
 	cp $fcmm ${workdir}/a.cmm
+
+	if ! [[ -f ${fcmm%.cmm}.out ]]; then
+		echo -e "${RED}${BOLD}Test [$(basename $fcmm)] correct output not given${NC}${NORMAL}"
+		CODE=-1
+		if [[ "$QUIET" = false ]]; then
+			read -p "Enter [c] to continue, other keys to abort: " txt
+			if [ -z "$txt" ] || [ $txt != 'c' ]; then
+				exit -1
+			fi
+		fi
+		continue
+	fi
+
 	cp ${fcmm%.cmm}.out ${workdir}/a.out
 
 	$RUN ${workdir}/a.cmm >${workdir}/b.out 2>&1
@@ -91,8 +122,8 @@ for fcmm in ${testdir}/*.cmm; do
 		echo -e "${RED}${BOLD}Test [$(basename $fcmm)] mismatch${NC}${NORMAL}"
 		diff ${workdir}/a.out ${workdir}/b.out | head -10
 		CODE=-1
-		if [[ "$QUIET" = true ]]; then
-			read -p "Enter [c] to continue, or [Enter] to abort: " txt
+		if [[ "$QUIET" = false ]]; then
+			read -p "Enter [c] to continue, other keys to abort: " txt
 			if [ -z "$txt" ] || [ $txt != 'c' ]; then
 				exit -1
 			fi
