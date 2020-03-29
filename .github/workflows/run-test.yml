@@ -1,11 +1,6 @@
 name: Run Tests
 
-on:
-  push:
-    paths:
-      - ".github/workflows/**"
-      - "tests/**"
-      - "*.sh"
+on: push
 
 jobs:
   test:
