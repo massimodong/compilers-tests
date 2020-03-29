@@ -1,5 +1,7 @@
 # CI4C--\_Compiler
 
+![Run Tests](https://github.com/zhengzangw/CI4C--_Compiler/workflows/Run%20Tests/badge.svg)
+
 基于 [compilers-tests](https://github.com/massimodong/compilers-tests) 魔改的编译原理实验持续集成方案。
 
 ## 使用方法
