@@ -12,6 +12,7 @@ workdir=${script_path}/workdir
 test_prefix=${script_path}/tests/test
 check_prefix=${script_path}/checks/check
 NAME=""
+LOGFILE=${workdir}/autotest.log
 
 usage() {
 	echo "Usage: $(basename $0) [-h] [-q] [parser]"
@@ -97,11 +98,13 @@ if [[ -z "$(ls -A $testdir)" ]]; then
 	echo -e "${RED}${BOLD}Test-set \"$(basename $testdir)\" contains no files${NC}${NORMAL}"
 	exit -1
 fi
+
+echo "$(date)" > $LOGFILE
 for fcmm in $TEST_SET; do
 	cp $fcmm ${workdir}/a.cmm
 
 	if ! [[ -f ${fcmm%.cmm}.out ]]; then
-		echo -e "${RED}${BOLD}Test [$(basename $fcmm)] correct output not given${NC}${NORMAL}"
+		echo -e "${RED}${BOLD}Test [$(basename $fcmm)] correct output not given${NC}${NORMAL}" |tee -a $LOGFILE
 		CODE=-1
 		if [[ "$QUIET" = false ]]; then
 			read -p "Enter [c] to continue, other keys to abort: " txt
@@ -117,9 +120,9 @@ for fcmm in $TEST_SET; do
 	$RUN ${workdir}/a.cmm >${workdir}/b.out 2>&1
 
 	if $(check ${workdir}/a.out ${workdir}/b.out); then
-		echo "Test [$(basename $fcmm)] matched"
+		echo "Test [$(basename $fcmm)] matched" |tee -a $LOGFILE
 	else
-		echo -e "${RED}${BOLD}Test [$(basename $fcmm)] mismatch${NC}${NORMAL}"
+		echo -e "${RED}${BOLD}Test [$(basename $fcmm)] mismatch${NC}${NORMAL}" |tee -a $LOGFILE
 		diff ${workdir}/a.out ${workdir}/b.out | head -10
 		CODE=-1
 		if [[ "$QUIET" = false ]]; then
