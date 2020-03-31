@@ -1,0 +1,108 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        StructSpecifier (1)
+          STRUCT
+          OptTag (1)
+            ID: CSOPu
+          LC
+          DefList (1)
+            Def (1)
+              Specifier (1)
+                StructSpecifier (1)
+                  STRUCT
+                  LC
+                  RC
+              DecList (2)
+                Dec (2)
+                  VarDec (2)
+                    VarDec (2)
+                      ID: ngwwL7
+                    LB
+                    INT: 3772
+                    RB
+                COMMA
+                DecList (5)
+                  Dec (5)
+                    VarDec (5)
+                      VarDec (5)
+                        VarDec (5)
+                          ID: LWb_3hBLO
+                        LB
+                        INT: 61
+                        RB
+                      LB
+                      INT: 869
+                      RB
+                    ASSIGNOP
+                    Exp (10)
+                      INT: 19374
+              SEMI
+          RC
+      FunDec (12)
+        ID: MAnitt5
+        LP
+        RP
+      CompSt (14)
+        LC
+        StmtList (14)
+          Stmt (14)
+            WHILE
+            LP
+            Exp (15)
+              ID: Htm2dwo
+              LP
+              Args (16)
+                Exp (16)
+                  Exp (16)
+                    Exp (16)
+                      Exp (16)
+                        FLOAT: 932109.812500
+                      DOT
+                      ID: W1KoXy
+                    MINUS
+                    Exp (18)
+                      ID: pg2SGgDNW
+                      LP
+                      RP
+                  RELOP
+                  Exp (20)
+                    Exp (20)
+                      INT: 60003
+                    PLUS
+                    Exp (21)
+                      FLOAT: 347.691010
+              RP
+            RP
+            Stmt (21)
+              CompSt (21)
+                LC
+                StmtList (22)
+                  Stmt (22)
+                    CompSt (22)
+                      LC
+                      StmtList (23)
+                        Stmt (23)
+                          WHILE
+                          LP
+                          Exp (23)
+                            ID: hlwMdtU
+                          RP
+                          Stmt (24)
+                            Exp (24)
+                              INT: 8679
+                            SEMI
+                      RC
+                RC
+        RC
+    ExtDefList (26)
+      ExtDef (26)
+        Specifier (26)
+          TYPE: int
+        SEMI
+      ExtDefList (28)
+        ExtDef (28)
+          Specifier (28)
+            TYPE: int
+          SEMI

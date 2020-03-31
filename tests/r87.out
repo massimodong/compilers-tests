@@ -1,0 +1,84 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        TYPE: int
+      ExtDecList (1)
+        VarDec (1)
+          ID: UBQAjs
+      SEMI
+    ExtDefList (2)
+      ExtDef (2)
+        Specifier (2)
+          StructSpecifier (2)
+            STRUCT
+            LC
+            DefList (4)
+              Def (4)
+                Specifier (4)
+                  TYPE: int
+                DecList (5)
+                  Dec (5)
+                    VarDec (5)
+                      VarDec (5)
+                        VarDec (5)
+                          ID: JcU8x
+                        LB
+                        INT: 8287
+                        RB
+                      LB
+                      INT: 16049
+                      RB
+                  COMMA
+                  DecList (7)
+                    Dec (7)
+                      VarDec (7)
+                        VarDec (7)
+                          VarDec (7)
+                            VarDec (7)
+                              VarDec (7)
+                                ID: Y0AY2a0
+                              LB
+                              INT: 1030
+                              RB
+                            LB
+                            INT: 224
+                            RB
+                          LB
+                          INT: 3629
+                          RB
+                        LB
+                        INT: 352
+                        RB
+                    COMMA
+                    DecList (11)
+                      Dec (11)
+                        VarDec (11)
+                          VarDec (11)
+                            VarDec (11)
+                              VarDec (11)
+                                VarDec (11)
+                                  ID: SgvFNbB
+                                LB
+                                INT: 821481
+                                RB
+                              LB
+                              INT: 1212
+                              RB
+                            LB
+                            INT: 4
+                            RB
+                          LB
+                          INT: 27136
+                          RB
+                SEMI
+            RC
+        SEMI
+      ExtDefList (16)
+        ExtDef (16)
+          Specifier (16)
+            StructSpecifier (16)
+              STRUCT
+              LC
+              RC
+          SEMI

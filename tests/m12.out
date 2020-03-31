@@ -1,0 +1,19 @@
+Error type A at Line 2: invalid number '0main'.
+Error type B at Line 6: syntax error.
+Error type B at Line 8: syntax error.
+Error type B at Line 12: syntax error.
+Error type B at Line 17: syntax error.
+Error type B at Line 23: syntax error.
+Error type B at Line 24: syntax error.
+Error type B at Line 26: syntax error.
+Error type B at Line 29: syntax error.
+Error type B at Line 34: syntax error.
+Error type B at Line 36: syntax error.
+Error type B at Line 37: syntax error.
+Error type B at Line 41: syntax error.
+Error type B at Line 43: syntax error.
+Error type A at Line 44: unknown character '&'
+Error type B at Line 45: syntax error.
+Error type A at Line 47: unknown character '?'
+Error type B at Line 48: syntax error.
+Error type A at Line 54: unterminated comment.

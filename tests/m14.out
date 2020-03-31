@@ -1,0 +1,54 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        TYPE: int
+      FunDec (1)
+        ID: main
+        LP
+        RP
+      CompSt (1)
+        LC
+        StmtList (2)
+          Stmt (2)
+            Exp (2)
+              Exp (2)
+                Exp (2)
+                  LP
+                  Exp (2)
+                    Exp (2)
+                      ID: a
+                    RELOP
+                    Exp (2)
+                      ID: b
+                  RP
+                RELOP
+                Exp (2)
+                  MINUS
+                  Exp (2)
+                    INT: 1
+              RELOP
+              Exp (2)
+                INT: 2
+            SEMI
+          StmtList (3)
+            Stmt (3)
+              Exp (3)
+                Exp (3)
+                  Exp (3)
+                    INT: 1
+                  RELOP
+                  Exp (3)
+                    LP
+                    Exp (3)
+                      Exp (3)
+                        INT: 2
+                      RELOP
+                      Exp (3)
+                        INT: 3
+                    RP
+                RELOP
+                Exp (3)
+                  ID: a1001010
+              SEMI
+        RC

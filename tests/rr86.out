@@ -1,0 +1,215 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        TYPE: float
+      SEMI
+    ExtDefList (2)
+      ExtDef (2)
+        Specifier (2)
+          StructSpecifier (2)
+            STRUCT
+            Tag (2)
+              ID: mQjUKXRX
+        FunDec (2)
+          ID: _72aJYch7Mc
+          LP
+          VarList (2)
+            ParamDec (2)
+              Specifier (2)
+                StructSpecifier (2)
+                  STRUCT
+                  Tag (2)
+                    ID: uVliN
+              VarDec (2)
+                ID: VPciZCDLUW
+            COMMA
+            VarList (2)
+              ParamDec (2)
+                Specifier (2)
+                  TYPE: int
+                VarDec (2)
+                  ID: VSCRSSD_
+          RP
+        CompSt (2)
+          LC
+          DefList (3)
+            Def (3)
+              Specifier (3)
+                TYPE: int
+              DecList (3)
+                Dec (3)
+                  VarDec (3)
+                    ID: zXSgBHn
+                  ASSIGNOP
+                  Exp (3)
+                    Exp (3)
+                      FLOAT: 23.459999
+                    PLUS
+                    Exp (3)
+                      INT: 224
+                COMMA
+                DecList (3)
+                  Dec (3)
+                    VarDec (3)
+                      ID: y0uzhe
+                    ASSIGNOP
+                    Exp (3)
+                      Exp (3)
+                        Exp (3)
+                          FLOAT: 73.650002
+                        DIV
+                        Exp (3)
+                          INT: 139
+                      ASSIGNOP
+                      Exp (3)
+                        FLOAT: 0.000137
+                  COMMA
+                  DecList (3)
+                    Dec (3)
+                      VarDec (3)
+                        ID: Y6jw_PTk_
+                      ASSIGNOP
+                      Exp (3)
+                        LP
+                        Exp (3)
+                          Exp (3)
+                            FLOAT: 78554.703125
+                          STAR
+                          Exp (3)
+                            ID: O3k180
+                        RP
+              SEMI
+            DefList (4)
+              Def (4)
+                Specifier (4)
+                  TYPE: float
+                DecList (4)
+                  Dec (4)
+                    VarDec (4)
+                      ID: t1kjxs
+                    ASSIGNOP
+                    Exp (4)
+                      ID: zlQw9o
+                      LP
+                      Args (4)
+                        Exp (4)
+                          INT: 3392
+                      RP
+                  COMMA
+                  DecList (4)
+                    Dec (4)
+                      VarDec (4)
+                        VarDec (4)
+                          ID: TFvLK02g
+                        LB
+                        INT: 5069
+                        RB
+                      ASSIGNOP
+                      Exp (4)
+                        Exp (4)
+                          ID: mAXjqLhTs2H
+                        LB
+                        Exp (4)
+                          LP
+                          Exp (4)
+                            Exp (4)
+                              Exp (4)
+                                Exp (4)
+                                  NOT
+                                  Exp (4)
+                                    NOT
+                                    Exp (4)
+                                      INT: 1920
+                                MINUS
+                                Exp (4)
+                                  Exp (4)
+                                    LP
+                                    Exp (4)
+                                      INT: 18
+                                    RP
+                                  DIV
+                                  Exp (4)
+                                    FLOAT: 419.070007
+                              OR
+                              Exp (4)
+                                Exp (4)
+                                  Exp (4)
+                                    ID: yXQso
+                                  PLUS
+                                  Exp (4)
+                                    MINUS
+                                    Exp (4)
+                                      ID: jutGQW
+                                      LP
+                                      RP
+                                AND
+                                Exp (4)
+                                  Exp (4)
+                                    Exp (4)
+                                      FLOAT: 500.880005
+                                    PLUS
+                                    Exp (4)
+                                      Exp (4)
+                                        ID: ReBjI2
+                                      DIV
+                                      Exp (4)
+                                        INT: 59933
+                                  MINUS
+                                  Exp (4)
+                                    INT: 205
+                            OR
+                            Exp (4)
+                              FLOAT: 984.320007
+                          RP
+                        RB
+                SEMI
+          StmtList (5)
+            Stmt (5)
+              Exp (5)
+                Exp (5)
+                  LP
+                  Exp (5)
+                    Exp (5)
+                      NOT
+                      Exp (5)
+                        FLOAT: 0.000009
+                    ASSIGNOP
+                    Exp (5)
+                      Exp (5)
+                        FLOAT: 935.099976
+                      MINUS
+                      Exp (5)
+                        Exp (5)
+                          ID: _sZzlJTF
+                          LP
+                          RP
+                        LB
+                        Exp (5)
+                          FLOAT: 0.033684
+                        RB
+                  RP
+                DOT
+                ID: SQCRxB
+              SEMI
+          RC
+      ExtDefList (7)
+        ExtDef (7)
+          Specifier (7)
+            TYPE: float
+          ExtDecList (7)
+            VarDec (7)
+              ID: W_YkxSk
+            COMMA
+            ExtDecList (7)
+              VarDec (7)
+                VarDec (7)
+                  ID: jAnP8zOIO
+                LB
+                INT: 7
+                RB
+              COMMA
+              ExtDecList (7)
+                VarDec (7)
+                  ID: i5yZtX
+          SEMI

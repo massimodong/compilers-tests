@@ -1,0 +1,212 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        TYPE: int
+      FunDec (1)
+        ID: main
+        LP
+        RP
+      CompSt (1)
+        LC
+        StmtList (2)
+          Stmt (2)
+            Exp (2)
+              Exp (2)
+                ID: a
+              DOT
+              ID: e
+            SEMI
+          StmtList (3)
+            Stmt (3)
+              Exp (3)
+                Exp (3)
+                  ID: a
+                DOT
+                ID: e
+              SEMI
+            StmtList (4)
+              Stmt (4)
+                Exp (4)
+                  Exp (4)
+                    ID: a
+                  DOT
+                  ID: e
+                SEMI
+              StmtList (5)
+                Stmt (5)
+                  Exp (5)
+                    Exp (5)
+                      ID: a
+                    DOT
+                    ID: e
+                  SEMI
+                StmtList (7)
+                  Stmt (7)
+                    Exp (7)
+                      Exp (7)
+                        ID: a
+                      DOT
+                      ID: e1
+                    SEMI
+                  StmtList (8)
+                    Stmt (8)
+                      Exp (8)
+                        Exp (8)
+                          ID: a
+                        DOT
+                        ID: e1
+                      SEMI
+                    StmtList (9)
+                      Stmt (9)
+                        Exp (9)
+                          Exp (9)
+                            ID: a
+                          DOT
+                          ID: e1
+                        SEMI
+                      StmtList (10)
+                        Stmt (10)
+                          Exp (10)
+                            Exp (10)
+                              ID: a
+                            DOT
+                            ID: e1
+                          SEMI
+                        StmtList (12)
+                          Stmt (12)
+                            Exp (12)
+                              Exp (12)
+                                ID: a2
+                              DOT
+                              ID: e
+                            SEMI
+                          StmtList (13)
+                            Stmt (13)
+                              Exp (13)
+                                Exp (13)
+                                  ID: a2
+                                DOT
+                                ID: e
+                              SEMI
+                            StmtList (14)
+                              Stmt (14)
+                                Exp (14)
+                                  Exp (14)
+                                    ID: a2
+                                  DOT
+                                  ID: e1
+                                SEMI
+                              StmtList (15)
+                                Stmt (15)
+                                  Exp (15)
+                                    Exp (15)
+                                      ID: a2
+                                    DOT
+                                    ID: e1
+                                  SEMI
+                                StmtList (17)
+                                  Stmt (17)
+                                    Exp (17)
+                                      Exp (17)
+                                        Exp (17)
+                                          ID: a
+                                        LB
+                                        Exp (17)
+                                          INT: 2
+                                        RB
+                                      DOT
+                                      ID: e
+                                    SEMI
+                                  StmtList (18)
+                                    Stmt (18)
+                                      Exp (18)
+                                        Exp (18)
+                                          Exp (18)
+                                            ID: a
+                                          LB
+                                          Exp (18)
+                                            INT: 2
+                                          RB
+                                        DOT
+                                        ID: e
+                                      SEMI
+                                    StmtList (19)
+                                      Stmt (19)
+                                        Exp (19)
+                                          Exp (19)
+                                            Exp (19)
+                                              ID: a
+                                            LB
+                                            Exp (19)
+                                              INT: 2
+                                            RB
+                                          DOT
+                                          ID: e1
+                                        SEMI
+                                      StmtList (20)
+                                        Stmt (20)
+                                          Exp (20)
+                                            Exp (20)
+                                              Exp (20)
+                                                ID: a
+                                              LB
+                                              Exp (20)
+                                                INT: 2
+                                              RB
+                                            DOT
+                                            ID: e1
+                                          SEMI
+                                        StmtList (22)
+                                          Stmt (22)
+                                            Exp (22)
+                                              Exp (22)
+                                                ID: a
+                                                LP
+                                                Args (22)
+                                                  Exp (22)
+                                                    INT: 2
+                                                RP
+                                              DOT
+                                              ID: e
+                                            SEMI
+                                          StmtList (23)
+                                            Stmt (23)
+                                              Exp (23)
+                                                Exp (23)
+                                                  ID: a
+                                                  LP
+                                                  Args (23)
+                                                    Exp (23)
+                                                      INT: 2
+                                                  RP
+                                                DOT
+                                                ID: e
+                                              SEMI
+                                            StmtList (24)
+                                              Stmt (24)
+                                                Exp (24)
+                                                  Exp (24)
+                                                    ID: a
+                                                    LP
+                                                    Args (24)
+                                                      Exp (24)
+                                                        INT: 2
+                                                    RP
+                                                  DOT
+                                                  ID: e1
+                                                SEMI
+                                              StmtList (25)
+                                                Stmt (25)
+                                                  Exp (25)
+                                                    Exp (25)
+                                                      ID: a
+                                                      LP
+                                                      Args (25)
+                                                        Exp (25)
+                                                          INT: 2
+                                                      RP
+                                                    DOT
+                                                    ID: e1
+                                                  SEMI
+        RC

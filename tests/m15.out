@@ -1,0 +1,449 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        TYPE: int
+      SEMI
+    ExtDefList (1)
+      ExtDef (1)
+        Specifier (1)
+          TYPE: float
+        SEMI
+      ExtDefList (1)
+        ExtDef (1)
+          Specifier (1)
+            StructSpecifier (1)
+              STRUCT
+              LC
+              DefList (1)
+                Def (1)
+                  Specifier (1)
+                    TYPE: int
+                  DecList (1)
+                    Dec (1)
+                      VarDec (1)
+                        ID: v
+                      ASSIGNOP
+                      Exp (1)
+                        ID: _
+                        LP
+                        Args (1)
+                          Exp (1)
+                            Exp (1)
+                              INT: 0
+                            DIV
+                            Exp (1)
+                              MINUS
+                              Exp (1)
+                                NOT
+                                Exp (1)
+                                  INT: 0
+                        RP
+                  SEMI
+              RC
+          SEMI
+        ExtDefList (2)
+          ExtDef (2)
+            Specifier (2)
+              TYPE: int
+            FunDec (2)
+              ID: main
+              LP
+              RP
+            CompSt (2)
+              LC
+              DefList (3)
+                Def (3)
+                  Specifier (3)
+                    StructSpecifier (3)
+                      STRUCT
+                      LC
+                      RC
+                  DecList (4)
+                    Dec (4)
+                      VarDec (4)
+                        ID: a
+                      ASSIGNOP
+                      Exp (4)
+                        Exp (4)
+                          Exp (4)
+                            Exp (4)
+                              Exp (4)
+                                ID: aa
+                                LP
+                                RP
+                              DOT
+                              ID: a0x01a4
+                            RELOP
+                            Exp (4)
+                              Exp (4)
+                                INT: 159
+                              PLUS
+                              Exp (4)
+                                FLOAT: inf
+                          RELOP
+                          Exp (4)
+                            INT: 62
+                        ASSIGNOP
+                        Exp (4)
+                          Exp (4)
+                            Exp (4)
+                              ID: mmi__009
+                            LB
+                            Exp (4)
+                              Exp (4)
+                                Exp (4)
+                                  Exp (4)
+                                    INT: 123
+                                  MINUS
+                                  Exp (4)
+                                    Exp (4)
+                                      MINUS
+                                      Exp (4)
+                                        INT: 111
+                                    STAR
+                                    Exp (4)
+                                      NOT
+                                      Exp (4)
+                                        ID: x
+                                        LP
+                                        Args (4)
+                                          Exp (4)
+                                            ID: x
+                                            LP
+                                            RP
+                                          COMMA
+                                          Args (4)
+                                            Exp (4)
+                                              ID: x
+                                        RP
+                                MINUS
+                                Exp (4)
+                                  MINUS
+                                  Exp (4)
+                                    MINUS
+                                    Exp (4)
+                                      MINUS
+                                      Exp (4)
+                                        MINUS
+                                        Exp (4)
+                                          MINUS
+                                          Exp (4)
+                                            MINUS
+                                            Exp (4)
+                                              MINUS
+                                              Exp (4)
+                                                MINUS
+                                                Exp (4)
+                                                  MINUS
+                                                  Exp (4)
+                                                    MINUS
+                                                    Exp (4)
+                                                      MINUS
+                                                      Exp (4)
+                                                        MINUS
+                                                        Exp (4)
+                                                          MINUS
+                                                          Exp (4)
+                                                            MINUS
+                                                            Exp (4)
+                                                              MINUS
+                                                              Exp (4)
+                                                                MINUS
+                                                                Exp (4)
+                                                                  MINUS
+                                                                  Exp (4)
+                                                                    MINUS
+                                                                    Exp (4)
+                                                                      MINUS
+                                                                      Exp (4)
+                                                                        MINUS
+                                                                        Exp (4)
+                                                                          MINUS
+                                                                          Exp (4)
+                                                                            MINUS
+                                                                            Exp (4)
+                                                                              MINUS
+                                                                              Exp (4)
+                                                                                MINUS
+                                                                                Exp (4)
+                                                                                  MINUS
+                                                                                  Exp (4)
+                                                                                    MINUS
+                                                                                    Exp (4)
+                                                                                      MINUS
+                                                                                      Exp (4)
+                                                                                        MINUS
+                                                                                        Exp (4)
+                                                                                          MINUS
+                                                                                          Exp (4)
+                                                                                            MINUS
+                                                                                            Exp (4)
+                                                                                              MINUS
+                                                                                              Exp (4)
+                                                                                                MINUS
+                                                                                                Exp (4)
+                                                                                                  MINUS
+                                                                                                  Exp (4)
+                                                                                                    MINUS
+                                                                                                    Exp (4)
+                                                                                                      MINUS
+                                                                                                      Exp (4)
+                                                                                                        MINUS
+                                                                                                        Exp (4)
+                                                                                                          MINUS
+                                                                                                          Exp (4)
+                                                                                                            MINUS
+                                                                                                            Exp (4)
+                                                                                                              MINUS
+                                                                                                              Exp (4)
+                                                                                                                MINUS
+                                                                                                                Exp (4)
+                                                                                                                  MINUS
+                                                                                                                  Exp (4)
+                                                                                                                    MINUS
+                                                                                                                    Exp (4)
+                                                                                                                      MINUS
+                                                                                                                      Exp (4)
+                                                                                                                        MINUS
+                                                                                                                        Exp (4)
+                                                                                                                          MINUS
+                                                                                                                          Exp (4)
+                                                                                                                            MINUS
+                                                                                                                            Exp (4)
+                                                                                                                              MINUS
+                                                                                                                              Exp (4)
+                                                                                                                                MINUS
+                                                                                                                                Exp (4)
+                                                                                                                                  MINUS
+                                                                                                                                  Exp (4)
+                                                                                                                                    MINUS
+                                                                                                                                    Exp (4)
+                                                                                                                                      INT: 0
+                              MINUS
+                              Exp (4)
+                                MINUS
+                                Exp (4)
+                                  MINUS
+                                  Exp (4)
+                                    MINUS
+                                    Exp (4)
+                                      MINUS
+                                      Exp (4)
+                                        ID: x0
+                            RB
+                          RELOP
+                          Exp (5)
+                            LP
+                            Exp (5)
+                              Exp (5)
+                                MINUS
+                                Exp (5)
+                                  INT: 1
+                              ASSIGNOP
+                              Exp (5)
+                                Exp (5)
+                                  INT: 998
+                                OR
+                                Exp (5)
+                                  Exp (5)
+                                    FLOAT: 0.100000
+                                  RELOP
+                                  Exp (5)
+                                    Exp (5)
+                                      Exp (5)
+                                        ID: x0
+                                      PLUS
+                                      Exp (5)
+                                        Exp (5)
+                                          INT: 7
+                                        STAR
+                                        Exp (5)
+                                          MINUS
+                                          Exp (5)
+                                            Exp (5)
+                                              Exp (5)
+                                                INT: 8
+                                              LB
+                                              Exp (5)
+                                                FLOAT: 0.000000
+                                              RB
+                                            DOT
+                                            ID: z0x1
+                                    MINUS
+                                    Exp (5)
+                                      MINUS
+                                      Exp (5)
+                                        NOT
+                                        Exp (5)
+                                          ID: a
+                            RP
+                  SEMI
+                DefList (7)
+                  Def (7)
+                    Specifier (7)
+                      StructSpecifier (7)
+                        STRUCT
+                        LC
+                        DefList (8)
+                          Def (8)
+                            Specifier (8)
+                              StructSpecifier (8)
+                                STRUCT
+                                OptTag (8)
+                                  ID: struct0
+                                LC
+                                RC
+                            DecList (9)
+                              Dec (9)
+                                VarDec (9)
+                                  ID: a
+                                ASSIGNOP
+                                Exp (9)
+                                  ID: a
+                                  LP
+                                  Args (9)
+                                    Exp (9)
+                                      Exp (9)
+                                        ID: a
+                                      OR
+                                      Exp (9)
+                                        Exp (9)
+                                          Exp (9)
+                                            Exp (9)
+                                              INT: 0
+                                            STAR
+                                            Exp (9)
+                                              INT: 0
+                                          MINUS
+                                          Exp (9)
+                                            MINUS
+                                            Exp (9)
+                                              ID: m
+                                        PLUS
+                                        Exp (9)
+                                          NOT
+                                          Exp (9)
+                                            INT: 7
+                                  RP
+                            SEMI
+                        RC
+                    DecList (10)
+                      Dec (10)
+                        VarDec (10)
+                          ID: _
+                    SEMI
+              StmtList (13)
+                Stmt (13)
+                  Exp (13)
+                    ID: e
+                    LP
+                    Args (13)
+                      Exp (13)
+                        Exp (13)
+                          Exp (13)
+                            Exp (13)
+                              Exp (13)
+                                Exp (13)
+                                  Exp (13)
+                                    ID: a
+                                  DOT
+                                  ID: b
+                                DOT
+                                ID: c
+                              DOT
+                              ID: d
+                            DOT
+                            ID: e
+                          DIV
+                          Exp (13)
+                            Exp (13)
+                              ID: a
+                            DOT
+                            ID: e
+                        MINUS
+                        Exp (13)
+                          Exp (13)
+                            NOT
+                            Exp (13)
+                              Exp (13)
+                                Exp (13)
+                                  ID: _
+                                DOT
+                                ID: a00
+                              DOT
+                              ID: m
+                          DIV
+                          Exp (13)
+                            LP
+                            Exp (13)
+                              ID: i
+                            RP
+                    RP
+                  SEMI
+                StmtList (14)
+                  Stmt (14)
+                    CompSt (14)
+                      LC
+                      StmtList (14)
+                        Stmt (14)
+                          CompSt (14)
+                            LC
+                            RC
+                        StmtList (14)
+                          Stmt (14)
+                            Exp (14)
+                              ID: a
+                            SEMI
+                      RC
+                  StmtList (14)
+                    Stmt (14)
+                      CompSt (14)
+                        LC
+                        RC
+                    StmtList (14)
+                      Stmt (14)
+                        CompSt (14)
+                          LC
+                          RC
+                      StmtList (14)
+                        Stmt (14)
+                          CompSt (14)
+                            LC
+                            RC
+                        StmtList (14)
+                          Stmt (14)
+                            CompSt (14)
+                              LC
+                              StmtList (14)
+                                Stmt (14)
+                                  CompSt (14)
+                                    LC
+                                    RC
+                                StmtList (14)
+                                  Stmt (14)
+                                    CompSt (14)
+                                      LC
+                                      RC
+                                  StmtList (14)
+                                    Stmt (14)
+                                      CompSt (14)
+                                        LC
+                                        StmtList (14)
+                                          Stmt (14)
+                                            CompSt (14)
+                                              LC
+                                              RC
+                                          StmtList (14)
+                                            Stmt (14)
+                                              CompSt (14)
+                                                LC
+                                                RC
+                                        RC
+                              RC
+              RC
+          ExtDefList (17)
+            ExtDef (17)
+              Specifier (17)
+                TYPE: float
+              SEMI

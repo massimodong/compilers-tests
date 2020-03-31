@@ -1,0 +1,93 @@
+Program (1)
+  ExtDefList (1)
+    ExtDef (1)
+      Specifier (1)
+        TYPE: float
+      ExtDecList (1)
+        VarDec (1)
+          VarDec (1)
+            ID: W74Yq
+          LB
+          INT: 8914331
+          RB
+        COMMA
+        ExtDecList (2)
+          VarDec (2)
+            VarDec (2)
+              VarDec (2)
+                ID: ImOpfTl8
+              LB
+              INT: 2452
+              RB
+            LB
+            INT: 956
+            RB
+          COMMA
+          ExtDecList (6)
+            VarDec (6)
+              ID: fXwljo
+            COMMA
+            ExtDecList (7)
+              VarDec (7)
+                VarDec (7)
+                  VarDec (7)
+                    ID: K9bgAO
+                  LB
+                  INT: 2659
+                  RB
+                LB
+                INT: 663549
+                RB
+              COMMA
+              ExtDecList (11)
+                VarDec (11)
+                  ID: nIr_
+      SEMI
+    ExtDefList (11)
+      ExtDef (11)
+        Specifier (11)
+          TYPE: float
+        ExtDecList (11)
+          VarDec (11)
+            ID: X_O2JGlxS6
+          COMMA
+          ExtDecList (12)
+            VarDec (12)
+              VarDec (12)
+                VarDec (12)
+                  VarDec (12)
+                    VarDec (12)
+                      VarDec (12)
+                        ID: RsFEFUtYJ5ji
+                      LB
+                      INT: 5103
+                      RB
+                    LB
+                    INT: 2907
+                    RB
+                  LB
+                  INT: 32
+                  RB
+                LB
+                INT: 7
+                RB
+              LB
+              INT: 1933
+              RB
+        SEMI
+      ExtDefList (21)
+        ExtDef (21)
+          Specifier (21)
+            TYPE: float
+          ExtDecList (21)
+            VarDec (21)
+              VarDec (21)
+                VarDec (21)
+                  ID: _TcEy3Vw5A
+                LB
+                INT: 1364
+                RB
+              LB
+              INT: 58622
+              RB
+          SEMI

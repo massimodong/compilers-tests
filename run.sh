@@ -46,6 +46,7 @@ for fcmm in ./tests/*.cmm; do
   else
     echo -e "${RED}${BOLD}test [$(basename $fcmm)] mismatch${NC}${NORMAL}"
     diff ./workdir/a.output ./workdir/b.output | head -10
+
     read -p "Enter [c] to continue, or [Enter] to abort: " txt
     if [ -z "$txt" ] || [ $txt != 'c' ]
     then
