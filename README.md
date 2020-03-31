@@ -1,4 +1,4 @@
-# compilers-tests
+# CI4C--\_Compiler
 
 编译原理实验持续集成方案。
 
