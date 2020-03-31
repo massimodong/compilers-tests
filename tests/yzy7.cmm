@@ -1,4 +1,0 @@
-struct hello{
-    int a;
-    int;
-};
