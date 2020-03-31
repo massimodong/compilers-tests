@@ -11,3 +11,7 @@ We are now on Lab2. Switch to branch `L1` or `L1-hard` for Lab1.
 对于有词法/语法错误的输入，只会检查是否报错了。
 
 # 添加测试文件
+请添加 `test.cmm` 和 `test.json` 两个文件。其中
+
+* `test.cmm` 是输入文件
+* `test.json` 是答案描述文件(TODO)
