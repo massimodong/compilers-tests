@@ -1,5 +1,7 @@
 # compilers-tests
 
+We are now on Lab2. Switch to branch `L1` or `L1-hard` for Lab1.
+
 编译原理 Lab1 一键测试脚本。
 
 使用方法：  
