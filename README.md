@@ -1,22 +1,14 @@
 # CI4C--\_Compiler
 
-![Run Tests](https://github.com/zhengzangw/CI4C--_Compiler/workflows/Run%20Tests/badge.svg)
-
-基于 [compilers-tests](https://github.com/massimodong/compilers-tests) 魔改的编译原理实验持续集成方案。
+编译原理实验持续集成方案。
 
 ## 使用方法
-
-第一次运行
 
 ```bash
 ./autotest.sh path_to_parser_binary
 ```
 
-之后运行无需参数即可测试
-
-```bash
-./autotest.sh
-```
+使用一次后 `parser` 地址将自动保存
 
 参数含义如下
 
@@ -26,6 +18,8 @@
 | -q --quiet   | 静默输出             |
 | -t test_num  | 选择测试集，默认为 1 |
 | -n file_name | 选择单个测试文件测试 |
+
+错误信息自动保存到 `workdir/autotest.log`
 
 ## 添加测试集
 
@@ -37,9 +31,17 @@
 
 ### Lab 1
 
-对于没有词法/语法错误的输入，会检查输出是否严格相同。
+对于没有词法/语法错误的输入，会检查输出是否严格相同。对于有词法/语法错误的输入，只会检查是否报错了。
 
-对于有词法/语法错误的输入，只会检查是否报错了。
+测试集 `test-1` 为同学贡献的 Lab1 测试用例（去除了有歧义的部分）。其中有 dyj 同学生成的大量随机样例。
+
+测试集 `test-2` 为标准样例的普通样例。
+
+测试集 `test-3` 为标准样例的增强样例，并修改/去除了以下含有错误/歧义的测试文件
+
+- `L1-A-1-69.cmm`
+- `L1-A-8-41.cmm`
+- `L1-C-{0/1}-*.cmm`
 
 ## 本地持续集成
 
@@ -55,6 +57,8 @@ YFC = $(shell find ./$(SRC)/ -name "*.y" | sed s/[^/]*\\.y/syntax.tab.c/)
 ```
 
 将 `CI4C--_Compiler` 下载到本地后，新建 `test1` 伪目标，修改 `CI` 变量的值到脚本路径即可通过 `make test1` 进行测试。
+
+`testall: test1 test2` 可以构成全部测试
 
 ## Github 持续集成
 

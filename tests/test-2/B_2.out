@@ -1,0 +1,4 @@
+Error type B at line 5: syntax error, near '>'
+Error type B at line 18: syntax error, near '+'
+Error type B at line 30: syntax error, near ']'
+Error type B at line 31: syntax error, the local variable cannot be defined after statements

@@ -1,0 +1,4 @@
+Error type B at line 3: syntax error, near ','
+Error type B at line 16: syntax error, near '['
+Error type A at line 20: illegal float number '.85'
+Error type B at line 24: syntax error, near '+'

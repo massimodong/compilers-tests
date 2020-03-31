@@ -1,0 +1,2 @@
+Error type A at Line 4: Illegal float number "45.e-1.1"
+Error type A at Line 6: Illegal float number "34.34E+1.2"

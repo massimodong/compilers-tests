@@ -1,0 +1,3 @@
+Error type A at Line 3: Illegal float number "12.34e+"
+Error type B at line 4: syntax error, unexpected DOT
+Error type A at Line 5: Illegal float number ".e-2"

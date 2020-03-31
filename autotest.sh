@@ -99,12 +99,12 @@ if [[ -z "$(ls -A $testdir)" ]]; then
 	exit -1
 fi
 
-echo "$(date)" > $LOGFILE
+echo "$(date)" >$LOGFILE
 for fcmm in $TEST_SET; do
 	cp $fcmm ${workdir}/a.cmm
 
 	if ! [[ -f ${fcmm%.cmm}.out ]]; then
-		echo -e "${RED}${BOLD}Test [$(basename $fcmm)] correct output not given${NC}${NORMAL}" |tee -a $LOGFILE
+		echo -e "${RED}${BOLD}Test [$(basename $fcmm)] correct output not given${NC}${NORMAL}"
 		CODE=-1
 		if [[ "$QUIET" = false ]]; then
 			read -p "Enter [c] to continue, other keys to abort: " txt
@@ -120,9 +120,13 @@ for fcmm in $TEST_SET; do
 	$RUN ${workdir}/a.cmm >${workdir}/b.out 2>&1
 
 	if $(check ${workdir}/a.out ${workdir}/b.out); then
-		echo "Test [$(basename $fcmm)] matched" |tee -a $LOGFILE
+		echo "Test [$(basename $fcmm)] matched"
+		if [[ -n $NAME ]]; then
+			diff ${workdir}/a.out ${workdir}/b.out | head -10
+		fi
 	else
-		echo -e "${RED}${BOLD}Test [$(basename $fcmm)] mismatch${NC}${NORMAL}" |tee -a $LOGFILE
+		echo -e "${RED}${BOLD}Test [$(basename $fcmm)] mismatch${NC}${NORMAL}"
+		echo "Test [$(basename $fcmm)] mismatch" >>$LOGFILE
 		diff ${workdir}/a.out ${workdir}/b.out | head -10
 		CODE=-1
 		if [[ "$QUIET" = false ]]; then
