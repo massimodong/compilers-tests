@@ -1,0 +1,27 @@
+struct Furiosa{
+  int arm;
+  int hair;
+}theFuriosa;
+
+struct AquaCola{
+  float amount;
+  struct Furiosa transporter;
+}cola;
+
+float transport(struct Furiosa theTransporter, struct AquaCola transportee, int requiredArm) {
+  if (theTransporter.arm == requiredArm) {
+    return transportee.amount;
+  } else
+    return -1.0;
+}
+
+int main() {
+  int fullArm;
+  float receivedAmount;
+
+  cola.transporter = theFuriosa;
+  theFuriosa.arm = 1;
+  fullArm = 2;
+  receivedAmount = transport(theFuriosa, cola.transporter, fullArm);
+  return 3;
+}

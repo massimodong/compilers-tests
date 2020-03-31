@@ -1,0 +1,17 @@
+struct Soldier{
+  int name;
+  int power;
+}platoon[10];
+
+struct General{
+  int names;
+  struct Soldier soldiers[10];
+}McMiller;
+
+
+int main(){
+  struct McMiller{
+    struct General man;
+  }one;
+  return 0;
+}

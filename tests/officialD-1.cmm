@@ -1,0 +1,35 @@
+int words[100];
+
+int defineFirst(int a, int b);
+
+int typeOut(int word, int position){
+  int results;
+  if(position < 100 && 0 >= position){
+    words[position] = word;
+    results = 1;
+  }
+  if(position >= 100) {
+    words[99] = word;
+    results = 2;
+  }
+  if (position < 0) {
+    words[0] = word;
+    results = -1;
+  }
+  return results;
+}
+
+int defineFirst(int a, int b){
+  return a + b;
+}
+
+int main() {
+  int i, N;
+  i = 0;
+  N = 3;
+  while (typeOut(N,i) == 1) {
+    N = -(N - 3);
+    i = i + N + 2;
+  }
+  return N;
+}
