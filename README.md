@@ -2,7 +2,7 @@
 
 We are now on Lab2. Switch to branch `L1` or `L1-hard` for Lab1.
 
-编译原理 Lab1 一键测试脚本。
+编译原理 Lab2 一键测试脚本。
 
 使用方法：  
 第一次运行执行 `./run.sh path_to_parser_binary` 。`path_to_parser_binary` 为编译好的 parser 文件。  

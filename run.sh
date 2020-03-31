@@ -37,15 +37,14 @@ mkdir -p ./workdir
 
 for fcmm in ./tests/*.cmm; do
   cp $fcmm ./workdir/a.cmm
-  cp ${fcmm%.cmm}.out ./workdir/a.out
+  cp ${fcmm%.cmm}.json ./workdir/a.json
 
-  $RUN ./workdir/a.cmm > ./workdir/b.out 2>&1
+  $RUN ./workdir/a.cmm > ./workdir/a.out 2>&1
 
-  if ./check.sh ./workdir/a.out ./workdir/b.out; then
+  if ./check.py; then
     echo test [$(basename $fcmm)] matched
   else
     echo -e "${RED}${BOLD}test [$(basename $fcmm)] mismatch${NC}${NORMAL}"
-    diff ./workdir/a.out ./workdir/b.out | head -10
     read -p "Enter [c] to continue, or [Enter] to abort: " txt
     if [ -z "$txt" ] || [ $txt != 'c' ]
     then
