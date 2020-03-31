@@ -44,6 +44,10 @@
 - `L1-A-8-41.cmm`
 - `L1-C-{0/1}-*.cmm`
 
+### Lab 2
+
+TBD
+
 ## 本地持续集成
 
 由于实验规定不能修改 Code 目录中的 Makfile，可以在 Lab 目录中新建 `makefile`，在原来的 makefile 基础上做以下修改，并对应修改 `clean` 命令中的参数即可。
