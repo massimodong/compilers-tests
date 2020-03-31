@@ -1,4 +1,4 @@
-# CI4C--\_Compiler
+# compiler-tests
 
 编译原理实验持续集成方案。
 
@@ -12,18 +12,19 @@
 
 参数含义如下
 
-| 参数         | 作用                 |
-| ------------ | -------------------- |
-| -h --help    | 帮助信息             |
-| -q --quiet   | 静默输出             |
-| -t test_num  | 选择测试集，默认为 1 |
-| -n file_name | 选择单个测试文件测试 |
-
-错误信息自动保存到 `workdir/autotest_TIME.log`
+| 参数         | 作用                  |
+| ------------ | --------------------- |
+| -h --help    | 帮助信息              |
+| -q --quiet   | 静默输出              |
+| -l lab_num   | 选择实验，默认全测    |
+| -t test_num  | 选择测试集，默认全测  |
+| -n file_name | 选择单个测试文件测试  |
+| --log        | 输出 log 到 `workdir` |
+| -c --clean   | 清理 \*.log 文件      |
 
 ## 添加测试集
 
-在 `tests` 目录下添加 `tests-n` 目录，并在 `checks` 文件夹下提供 `check-n.sh` 文件（定义 `check` 函数供比较，错误应返回 1，正确返回 0），即可添加测试集。
+在 `tests` 目录下添加 `Lab-n` 目录，并在该目录下提供 `check.sh` 文件（定义 `check` 函数供比较，错误应返回 1，正确返回 0）。通过添加 `test-n` 文件夹即可添加测试集。
 
 每个测试用例应包含形如 `yourtest.cmm` 和 `yourtest.out` 的两个文件。
 
@@ -33,7 +34,7 @@
 
 对于没有词法/语法错误的输入，会检查输出是否严格相同。对于有词法/语法错误的输入，只会检查是否报错了。
 
-测试集 `test-1` 为同学贡献的 Lab1 测试用例（去除了有歧义的部分）。其中有 dyj 同学生成的大量随机样例。
+测试集 `test-1` 为同学贡献的 Lab1 测试用例，包含 dyj 同学生成的大量随机样例。
 
 测试集 `test-2` 为标准样例的普通样例。
 
@@ -56,9 +57,7 @@ LFC = $(shell find ./$(SRC)/ -name "*.l" | sed s/[^/]*\\.l/lex.yy.c/)
 YFC = $(shell find ./$(SRC)/ -name "*.y" | sed s/[^/]*\\.y/syntax.tab.c/)
 ```
 
-将 `CI4C--_Compiler` 下载到本地后，新建 `test1` 伪目标，修改 `CI` 变量的值到脚本路径即可通过 `make test1` 进行测试。
-
-`testall: test1 test2` 可以构成全部测试
+将本项目下载到本地后，新建 `test` 伪目标，通过 `make test` 进行测试。
 
 ## Github 持续集成
 
