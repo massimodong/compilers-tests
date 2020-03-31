@@ -13,11 +13,14 @@ ref_list = json.load(open(f_json));
 out = open(f_out);
 
 require = {};
+resolve = {};
 allow = {};
 
 if "require" in ref_list:
-    for x, y in ref_list["require"]:
-        require[(x, y)] = 0;
+    for err in ref_list["require"]:
+        require[err] = 0;
+        for x, y in ref_list["require"][err]:
+            resolve[(x, y)] = err;
 
 if "allow" in ref_list:
     for x, y in ref_list["allow"]:
@@ -35,11 +38,15 @@ while True:
     x, y = m.groups();
     pos = (int(x), int(y))
 
-    if pos in require:
-        require[pos] = 1;
+    if pos in resolve:
+        require[resolve[pos]] = 1;
     elif pos in allow:
         pass;
     else:
+        exit(1);
+
+for err in require:
+    if require[err] == 0:
         exit(1);
 
 exit(0);
