@@ -12,7 +12,7 @@ workdir=${script_path}/workdir
 test_prefix=${script_path}/tests/test
 check_prefix=${script_path}/checks/check
 NAME=""
-LOGFILE=${workdir}/autotest.log
+LOGFILE="${workdir}/autotest-$(date +%F-%H:%M:%S).log"
 
 usage() {
 	echo "Usage: $(basename $0) [-h] [-q] [parser]"

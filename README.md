@@ -19,7 +19,7 @@
 | -t test_num  | 选择测试集，默认为 1 |
 | -n file_name | 选择单个测试文件测试 |
 
-错误信息自动保存到 `workdir/autotest.log`
+错误信息自动保存到 `workdir/autotest_TIME.log`
 
 ## 添加测试集
 
