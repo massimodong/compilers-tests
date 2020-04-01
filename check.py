@@ -20,7 +20,10 @@ if "require" in ref_list:
     for err in ref_list["require"]:
         require[err] = 0;
         for x, y in ref_list["require"][err]:
-            resolve[(x, y)] = err;
+            if (x, y) in resolve:
+                resolve[(x, y)].append(err);
+            else:
+                resolve[(x, y)] = [err];
 
 if "allow" in ref_list:
     for x, y in ref_list["allow"]:
@@ -39,7 +42,8 @@ while True:
     pos = (int(x), int(y))
 
     if pos in resolve:
-        require[resolve[pos]] = 1;
+        for err in resolve[pos]:
+            require[err] = 1;
     elif pos in allow:
         pass;
     else:
