@@ -1,0 +1,9 @@
+struct T{
+  int a;
+  struct T b;
+};
+
+int main(){
+  struct T c, d;
+  c = d;
+}
