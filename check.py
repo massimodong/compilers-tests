@@ -47,10 +47,14 @@ while True:
     elif pos in allow:
         pass;
     else:
+        msg("Not allowed error %d at line %d.\nPlease add it to corresponding .json file if you think your output is reasonable." % (pos));
         exit(1);
 
 for err in require:
     if require[err] == 0:
+        msg("You should output at least one of the following erros:");
+        for x, y in ref_list["require"][err]:
+            msg("- Error %d at line %d." % (int(x), int(y)));
         exit(1);
 
 exit(0);

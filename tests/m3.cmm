@@ -1,0 +1,29 @@
+struct T1{
+  int a;
+};
+
+struct T2{
+  int c, d;
+};
+
+struct StA{
+  struct{
+    int a;
+  }v1_1;
+
+  struct T2 v1_2;
+};
+
+struct StB{
+  struct T1 x1_1;
+
+  struct{
+    int z1, z2;
+  }x1_2;
+};
+
+int main(){
+  struct StA sta;
+  struct StB stb;
+  sta = stb;
+}

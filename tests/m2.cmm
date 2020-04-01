@@ -1,0 +1,15 @@
+int i[2][5][100];
+
+struct Point{
+  int x, y;
+  float pos;
+  struct{
+    int inner_st;
+  }A;
+} B[100];
+
+struct UnDef;
+
+int;
+
+struct UnDef2;

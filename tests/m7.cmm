@@ -1,0 +1,9 @@
+int fun(int a);
+
+int fun(int b);
+
+int fun(int c);
+
+int fun(int d){
+  return d / 2;
+}
