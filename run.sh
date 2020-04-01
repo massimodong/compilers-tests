@@ -43,7 +43,7 @@ for fcmm in ./tests/*.cmm; do
 
   $RUN ./workdir/a.cmm > ./workdir/a.out 2>&1
 
-  if python3 ./check.py; then
+  if python ./check.py; then
     echo test [$(basename $fcmm)] matched
   else
     echo -e "${RED}${BOLD}test [$(basename $fcmm)] mismatch${NC}${NORMAL}"
