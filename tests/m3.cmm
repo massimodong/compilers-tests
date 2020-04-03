@@ -1,5 +1,0 @@
-
-int m/a(){
-  int a = 3;
-  int b = 4;
-}

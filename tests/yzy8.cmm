@@ -1,5 +1,0 @@
-int main( {
-    i = 3;
-    return 0;
-    ++i;
-}
