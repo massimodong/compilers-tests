@@ -1,0 +1,18 @@
+int compare(int a, int b) {
+  if(a == b)
+    return 0;
+  if(a < b)
+    return -1;
+  if(a > b)
+    return 1;
+}
+
+int main(){
+  int x, y, z;
+  x = 1;
+  y = 2;
+  z = 3;
+  compare(x, y);
+  campare(y, x);
+  return z;
+}

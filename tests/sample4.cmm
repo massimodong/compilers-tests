@@ -1,9 +1,13 @@
-struct Complex
+int func(int i)
 {
-	float real, image;
-};
+  return i;
+}
+
+int func()
+{
+  return 0;
+}
+
 int main()
 {
-	struct Complex x;
-	y.image = 3.5;
 }

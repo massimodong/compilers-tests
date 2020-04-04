@@ -1,0 +1,43 @@
+struct A{
+  int a;
+  float a_float;
+  struct A_inner{
+    int a_inner_int[20];
+  }a_inner;
+}aa;
+
+struct B{
+  int b;
+  float b_float;
+  int b_array[10][3];
+}bb;
+
+struct C{
+  int c;
+  float c_float;
+  int c_array[10][3];
+}cc;
+
+struct D{
+  int d;
+  float d_float;
+  struct D_inner{
+    int d_innerr[20];
+  }d_inner;
+}dd;
+
+int main(){
+  struct A temA, temA1;
+  struct B temB, temB1;
+  struct C temC, temC1;
+  struct D temD, temD1;
+  temA = aa;
+  temA1 = dd;
+  temB = bb;
+  temB1 = cc;
+  temC = cc;
+  temC1 = bb;
+  temD = dd;
+  temD1 = aa;
+  return 1;
+}

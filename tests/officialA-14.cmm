@@ -1,0 +1,20 @@
+struct Sith{
+  int force;
+  int darkness;
+}vader;
+
+struct Jedi{
+  int power;
+  float calm;
+}yoda;
+
+int battle() {
+  int result;
+  if (vader.force >= yoda.power)
+    result = vader.darkness;
+  else if (vader.force <= 3)
+    result = vader.force;
+  else
+    result = yoda.darkness;
+  return result;
+}

@@ -1,0 +1,12 @@
+struct Product {
+  int name;
+  float price;
+};
+
+int main(){
+  struct Product burger, fries;
+  burger.name = 1;
+  fries.price = 1.3;
+  n = burger.name - 1;
+  return 0;
+}

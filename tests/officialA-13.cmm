@@ -1,0 +1,18 @@
+struct Sith{
+  int force;
+  int darkness;
+}sithLords[10];
+
+int jedi[10];
+
+int battle(){
+  int results[10];
+  int i = 0;
+  while(i < 10){
+    if(sithLords[i].force >= jedi[i].force)
+      results[i] = sithLords[i].darkness;
+    else
+      results[i] = -1;
+  }
+  return i;
+}

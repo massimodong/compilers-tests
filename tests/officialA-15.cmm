@@ -1,0 +1,10 @@
+struct Jedi{
+  int force, power;
+  float might;
+  float force;
+};
+
+int main() {
+  struct Jedi obiwon;
+  return obiwon.force;
+}

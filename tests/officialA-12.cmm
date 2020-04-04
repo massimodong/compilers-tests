@@ -1,0 +1,34 @@
+struct Burger{
+  int meat;
+  float flavor;
+}burgers[10];
+
+int exchange(struct Burger a, struct Burger b) {
+  int tem;
+  tem = a.meat;
+  a.meat = b.meat;
+  b.meat = tem;
+  return tem;
+}
+
+int main() {
+  int bb, N;
+  float t;
+  N = 10;
+  bb = 0;
+  t = 1.0;
+
+  while(bb < N) {
+    bb = bb +2;
+    burgers[bb].meat = N + 3;
+    burgers[bb-1].meat = N + 2;
+  }
+  N = N -1 ;
+  while(N > 0) {
+    bb = exchange(burgers[N], burgers[N - 1]);
+    burgers[N].flavor = 3.0;
+    N = N - 1;
+  }
+  burgers[burgers[N + 1].flavor].meat = bb;
+  return bb;
+}
