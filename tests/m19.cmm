@@ -1,0 +1,55 @@
+struct FinalFantasyXIV {
+  int release_date;
+  int maximum_characters = 8;
+  int dlc_version;
+  int game_price;
+  float service_fee;
+} game;
+
+struct FFXIVPlayer {
+  int money;
+  int username;
+  int characters;
+  int maximum_level;
+  int bought_dlcs;
+  float maximum_level;
+} players[1145141919], RMBPlayer;
+
+int getDate();
+int buy_ff14(struct FFXIVPlayer player) {
+  if (getDate() > game.release_date) {
+    player.money = player.money - windows_pc_price;
+    player.money = player.money - game.game_price;
+    player.money = player.money - game.service_fee;
+    player.bought_dlcs = game.latest_dlc_version;
+    return 1;
+  }
+  return 0;
+}
+
+int play_ff14(struct FFXIVPlayer player) {
+  if (getDate() > game.release_date) {
+    play_compiler_labs(); // ???
+    return 0;
+  } else {
+    player.money = player.money + 1;
+    wait_for_ffxiv_release();
+    return 0;
+  }
+}
+
+int main(int argc, float argv /* LOL */) {
+  struct FFXIVPlayer player = RMBPlayer;
+  game.release_date = 0X20140000;
+  game.game_price = 60;
+  game.service_fee = 20;
+  player.money = 0x3f3f3f3f;
+  while (!play_ff14) {
+    // player spins until he can play!
+  }
+  return -1;
+}
+
+float getDate() {
+  return 0;
+}
