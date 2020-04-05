@@ -220,7 +220,7 @@ struct WTF {
   wtf.third.second = betabets[45];
   wtf.third = gammabets[14];
   wtf = deltabets[19];
-  wtf = HOLYSHIT + HOLYSHIT;
+  wtf = HOLYSHIT;
 
   return deltabets[0];
 }
