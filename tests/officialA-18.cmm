@@ -1,0 +1,18 @@
+struct Food{
+  int name;
+  float price;
+  struct Content{
+    int title;
+    float type;
+  }types;
+}ham;
+
+struct Burger{
+  struct Food meat = ham;
+  int buck;
+};
+
+int main() {
+  struct Burger hamburger;
+  return hamburger.buck;
+}

@@ -1,0 +1,31 @@
+struct Burger{
+  int meat;
+  int bread;
+  float saurce;
+}McDonald;
+
+struct Whopper{
+  int meat1;
+  int meat2;
+  int bread1;
+  int saurce1;
+}BurgerKing;
+
+int theSame(int a, int b) {
+  if(a ==b )
+    return 1;
+  else
+    return 0;
+}
+
+int main() {
+  int p;
+  McDonald.meat = -1;
+  McDonald.bread = 1;
+  McDonald.saurce = 3.4;
+  BurgerKing.meat1 = 3;
+  BurgerKing.meat2 = 3;
+  p = theSame(McDonald.meat, BurgerKing.meat1);
+  theSame(McDonald.meat, BurgerKing.meat2) = p;
+  return p;
+}

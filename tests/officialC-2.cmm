@@ -1,0 +1,42 @@
+struct Defined{
+  int name;
+  float ty;
+};
+
+int sequence[1000];
+int quickSort(int start, int end) {
+  int i,j, x;
+  i = start;
+  j = end;
+  x = sequence[i];
+  if(i < j) {
+    while(i < j) {
+      while(i < j && sequence[j] > x)
+        j = j - 1;
+      if(i < j)
+        sequence[i] = sequence[j];
+      while(i < j && sequence[i] <= x)
+        i = i + 1;
+      if(i < j)
+        sequence[j] = sequence[i];
+    }
+    sequence[i] = x;
+    quickSort(start, i-1);
+    quickSort(i+1, end);
+  }
+  return 1;
+}
+
+int main() {
+  struct Defined ttt;
+  int q,p;
+  q = 0;
+  p = 3;
+  while(q < 1000) {
+    sequence[q] = p * 3;
+    p = p - q;
+    q = q + 1;
+  }
+  quickSort(0,999);
+  return q;
+}

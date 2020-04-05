@@ -1,14 +1,9 @@
-int main(){
-  0;
-  000;
-  0x00;
-  1010;
-  0101;
-  2;
-  22222;
+int fun(int a);
 
-  12 * 0x9Aab +0712;
+int fun(int b);
 
-  0x0;
-  x0;
+int fun(int c);
+
+int fun(int d){
+  return d / 2;
 }
