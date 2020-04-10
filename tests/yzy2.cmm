@@ -1,0 +1,8 @@
+struct not_variable {
+    int a;
+} is_variable;
+
+int main() {
+    struct not_variable not_variable = is_variable;
+    struct not_variable another_variable = is_variable;
+}
