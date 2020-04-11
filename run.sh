@@ -41,7 +41,16 @@ for fcmm in ./tests/*.cmm; do
   cp $fcmm ./workdir/a.cmm
   cp ${fcmm%.cmm}.json ./workdir/a.json
 
-  $RUN ./workdir/a.cmm > ./workdir/a.out 2>&1
+  if timeout 2 $RUN ./workdir/a.cmm > ./workdir/a.out 2>&1; then
+    true; #do nothing
+  else
+    echo -e "${RED}${BOLD}test [$(basename $fcmm)] RE or TLE ${NC}${NORMAL}"
+    read -p "Enter [c] to continue, or [Enter] to abort: " txt
+    if [ -z "$txt" ] || [ $txt != 'c' ]
+    then
+      exit 1
+    fi
+  fi
 
   if python ./check.py; then
     echo test [$(basename $fcmm)] matched
@@ -50,7 +59,7 @@ for fcmm in ./tests/*.cmm; do
     read -p "Enter [c] to continue, or [Enter] to abort: " txt
     if [ -z "$txt" ] || [ $txt != 'c' ]
     then
-      exit 0
+      exit 1
     fi
   fi
 done
