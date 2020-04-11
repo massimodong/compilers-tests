@@ -37,43 +37,39 @@ echo "RUN=$RUN" > ./workdir/saved_binary.sh
 
 mkdir -p ./workdir
 
+report_error(){
+  echo -e "${RED}${BOLD}test [$(basename $fcmm)]" "$1" "${NC}${NORMAL}"
+  read -p "Enter [c] to continue, or [Enter] to abort: " txt
+  if [ -z "$txt" ] || [ $txt != 'c' ]
+  then
+    exit 1
+  fi
+}
+
 for fcmm in ./tests/*.cmm; do
   cp $fcmm ./workdir/a.cmm
   cp ${fcmm%.cmm}.json ./workdir/a.json
 
-  if timeout --help > /dev/null; then
+  if timeout --help > /dev/null 2>&1; then #if has `timeout` command
     if timeout 2 $RUN ./workdir/a.cmm > ./workdir/a.out 2>&1; then
       true; #do nothing
     else
-      echo -e "${RED}${BOLD}test [$(basename $fcmm)] RE or TLE ${NC}${NORMAL}"
-      read -p "Enter [c] to continue, or [Enter] to abort: " txt
-      if [ -z "$txt" ] || [ $txt != 'c' ]
-      then
-        exit 1
-      fi
+      report_error "RE or TLE"
       continue
     fi
   else
-   if $RUN ./workdir/a.cmm > ./workdir/a.out 2>&1; then
+    if $RUN ./workdir/a.cmm > ./workdir/a.out 2>&1; then
       true; #do nothing
     else
-      echo -e "${RED}${BOLD}test [$(basename $fcmm)] RE ${NC}${NORMAL}"
-      read -p "Enter [c] to continue, or [Enter] to abort: " txt
-      if [ -z "$txt" ] || [ $txt != 'c' ]
-      then
-        exit 1
-      fi
+      report_error "RE"
+      continue
     fi
   fi
 
   if python ./check.py; then
     echo test [$(basename $fcmm)] matched
   else
-    echo -e "${RED}${BOLD}test [$(basename $fcmm)] mismatch${NC}${NORMAL}"
-    read -p "Enter [c] to continue, or [Enter] to abort: " txt
-    if [ -z "$txt" ] || [ $txt != 'c' ]
-    then
-      exit 1
-    fi
+    report_error "mismatch"
+    continue
   fi
 done
