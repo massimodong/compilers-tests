@@ -9001,5 +9001,20 @@ struct A2999{
 
 int main(){
   struct A2999 a, b;
+  struct A2997 c;
+  struct A2997 d;
+  struct A2998 e;
   a = b;
+
+  a = c;
+  b = c;
+
+  a = d;
+  b = d;
+  c = d;
+
+  a = e;
+  b = e;
+  c = e;
+  d = e;
 }
