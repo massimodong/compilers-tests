@@ -41,14 +41,27 @@ for fcmm in ./tests/*.cmm; do
   cp $fcmm ./workdir/a.cmm
   cp ${fcmm%.cmm}.json ./workdir/a.json
 
-  if timeout 2 $RUN ./workdir/a.cmm > ./workdir/a.out 2>&1; then
-    true; #do nothing
+  if timeout --help > /dev/null; then
+    if timeout 2 $RUN ./workdir/a.cmm > ./workdir/a.out 2>&1; then
+      true; #do nothing
+    else
+      echo -e "${RED}${BOLD}test [$(basename $fcmm)] RE or TLE ${NC}${NORMAL}"
+      read -p "Enter [c] to continue, or [Enter] to abort: " txt
+      if [ -z "$txt" ] || [ $txt != 'c' ]
+      then
+        exit 1
+      fi
+    fi
   else
-    echo -e "${RED}${BOLD}test [$(basename $fcmm)] RE or TLE ${NC}${NORMAL}"
-    read -p "Enter [c] to continue, or [Enter] to abort: " txt
-    if [ -z "$txt" ] || [ $txt != 'c' ]
-    then
-      exit 1
+   if $RUN ./workdir/a.cmm > ./workdir/a.out 2>&1; then
+      true; #do nothing
+    else
+      echo -e "${RED}${BOLD}test [$(basename $fcmm)] RE ${NC}${NORMAL}"
+      read -p "Enter [c] to continue, or [Enter] to abort: " txt
+      if [ -z "$txt" ] || [ $txt != 'c' ]
+      then
+        exit 1
+      fi
     fi
   fi
 
