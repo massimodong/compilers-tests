@@ -51,6 +51,7 @@ for fcmm in ./tests/*.cmm; do
       then
         exit 1
       fi
+      continue
     fi
   else
    if $RUN ./workdir/a.cmm > ./workdir/a.out 2>&1; then
