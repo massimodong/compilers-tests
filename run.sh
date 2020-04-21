@@ -51,14 +51,14 @@ for fcmm in ./tests/*.cmm; do
   cp ${fcmm%.cmm}.json ./workdir/a.json
 
   if timeout --help > /dev/null 2>&1; then #if has `timeout` command
-    if timeout 2 $RUN ./workdir/a.cmm > ./workdir/a.ir 2>&1; then
+    if timeout 2 $RUN ./workdir/a.cmm  ./workdir/a.ir 2>&1; then
       true; #do nothing
     else
       report_error "RE or TLE"
       continue
     fi
   else
-    if $RUN ./workdir/a.cmm > ./workdir/a.ir 2>&1; then
+    if $RUN ./workdir/a.cmm ./workdir/a.ir 2>&1; then
       true; #do nothing
     else
       report_error "RE"
