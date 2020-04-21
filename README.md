@@ -24,11 +24,22 @@ We are now on Lab3. Switch to branch `L1` or `L1-hard` for Lab1. Switch to branc
 请添加 `test.cmm` 和 `test.in` 两个文件。其中
 
 * `test.cmm` 是源码文件
-* `test.in` 是程序执行时输入的数据文件
+* `test.json` 是答案描述文件，格式为
 
-测试脚本采取以下策略进行测试：
-
-1. 使用 GCC 编译 CMM 源码，使用数据文件作为标准输入执行编译后的二进制文件，得到输出结果作为标准输出。
-   - `template.c` 中包含了 GCC 编译的模板 C 代码，目前其提供了一个基础的 `read/write` 实现。
-2. 调用你的编译器编译 CMM 源码得到中间代码，使用数据文件作为标准输入调用 `irsim.py` 运行 IR，得到输出结果作为实际输出。
-3. 比对标准输出和实际输出
+```
+[
+    [input1, output1, ret_val1],
+    [input2, output2, ret_val2],
+    ...
+    [inputk, outputk, ret_valk]
+]
+```
+input和output分别对应输入和输出，也为**列表**，且列表的所有成员均为**整型数**
+示例：(tests/naive.json)
+```
+[
+    [[], [2, 0, 1, 7], 0]
+]
+```
+意为，naive.cmm编译成.ir后，仅有一组测试，
+该组测试的输入为空，输出为2 0 1 7四个数字。最顶层的main函数应该返回0（由于irsim没有对应接口，目前ret_val被忽略）
