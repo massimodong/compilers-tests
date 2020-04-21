@@ -23,7 +23,6 @@ for data_in, data_out, ret_val in ref_list:
         to_irsim_w.write(str(i) + '\n')
     to_irsim_w.close()
 
-    print program + " " + f_ir + " <&" + str(to_irsim_r) + " >&" + str(from_irsim_w)
     ret = system(program + " " + f_ir + " <&" + str(to_irsim_r) + " >&" + str(from_irsim_w))
     # suppose irsim is compiled by run.sh
     close(from_irsim_w)
