@@ -1,1 +1,4 @@
 workdir/*
+.gitignore
+parser
+my.sh

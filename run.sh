@@ -4,8 +4,6 @@ RED='\033[0;31m'
 NC='\033[0m'
 BOLD=$(tput bold)
 NORMAL=$(tput sgr0)
-PYTHON='python'
-CC='gcc'
 
 cd $(dirname $0)
 
@@ -15,7 +13,6 @@ then
 fi
 
 RUN=$1
-CODE=0
 
 if [ -e ./workdir/saved_binary.sh ]
 then
@@ -36,9 +33,9 @@ then
   exit 0
 fi
 
-mkdir -p ./workdir
-
 echo "RUN=$RUN" > ./workdir/saved_binary.sh
+
+mkdir -p ./workdir
 
 report_error(){
   echo -e "${RED}${BOLD}test [$(basename $fcmm)]" "$1" "${NC}${NORMAL}"
@@ -51,64 +48,28 @@ report_error(){
 
 for fcmm in ./tests/*.cmm; do
   cp $fcmm ./workdir/a.cmm
-  cp ${fcmm%.cmm}.in ./workdir/a.in
-  cp template.c ./workdir/template.c
+  cp ${fcmm%.cmm}.json ./workdir/a.json
 
   if timeout --help > /dev/null 2>&1; then #if has `timeout` command
-    if timeout 2 $RUN ./workdir/a.cmm ./workdir/a.ir; then
+    if timeout 2 $RUN ./workdir/a.cmm  ./workdir/a.ir 2>&1; then
       true; #do nothing
     else
-      report_error "RE or TLE when compile"
+      report_error "RE or TLE"
       continue
     fi
   else
-    if $RUN ./workdir/a.cmm ./workdir/a.ir; then
+    if $RUN ./workdir/a.cmm ./workdir/a.ir 2>&1; then
       true; #do nothing
     else
-      report_error "RE when compile"
+      report_error "RE"
       continue
     fi
   fi
 
-  if timeout --help > /dev/null 2>&1; then #if has `timeout` command
-    if timeout 5 $CC ./workdir/template.c -o ./workdir/std.out; then
-      ./workdir/std.out < ./workdir/a.in > ./workdir/ans.out
-    else
-      report_error "RE or TLE when compile by GCC"
-      continue
-    fi
-  else
-    if $CC ./workdir/template.c -o ./workdir/std.out; then
-      ./workdir/std.out < ./workdir/a.in > ./workdir/ans.out
-    else
-      report_error "RE when compile by GCC"
-      continue
-    fi
-  fi
-
-  if timeout --help > /dev/null 2>&1; then #if has `timeout` command
-    if timeout 8 $PYTHON ./irsim.py ./workdir/a.ir < ./workdir/a.in > ./workdir/a.out; then
-      true; #do nothing
-    else
-      report_error "RE or TLE when execute IR"
-      continue
-    fi
-  else
-    if $PYTHON ./irsim.py ./workdir/a.ir < ./workdir/a.in > ./workdir/a.out; then
-      true; #do nothing
-    else
-      report_error "RE when execute IR"
-      continue
-    fi
-  fi
-
-  if diff ./workdir/ans.out ./workdir/a.out --strip-trailing-cr > /dev/null; then
+  if python ./check.py; then
     echo test [$(basename $fcmm)] matched
   else
-    diff ./workdir/ans.out ./workdir/a.out --strip-trailing-cr | head -10
-    CODE=-1
     report_error "mismatch"
+    continue
   fi
 done
-
-exit $CODE
