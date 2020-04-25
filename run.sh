@@ -51,27 +51,26 @@ report_error(){
   fi
 }
 
+if timeout --help > /dev/null 2>&1; then #if has `timeout` command
+    PREFIX="timeout 2 ";
+else
+    echo "timeout command is not support in current environment"
+    echo "running time will not be counted"
+    PREFIX="";
+fi;
+
 for fcmm in ./tests/*.cmm; do
   cp $fcmm ./workdir/a.cmm
   cp ${fcmm%.cmm}.json ./workdir/a.json
 
-  if timeout --help > /dev/null 2>&1; then #if has `timeout` command
-    if timeout 2 $RUN ./workdir/a.cmm  ./workdir/a.ir 2>&1; then
+  if $PREFIX $RUN ./workdir/a.cmm  ./workdir/a.ir 2>&1; then
       true; #do nothing
-    else
+  else
       report_error "RE or TLE"
       continue
-    fi
-  else
-    if $RUN ./workdir/a.cmm ./workdir/a.ir 2>&1; then
-      true; #do nothing
-    else
-      report_error "RE"
-      continue
-    fi
-  fi
+  fi;
 
-  if python ./check.py; then
+  if $PREFIX python ./check.py; then
     echo test [$(basename $fcmm)] matched
   else
     report_error "mismatch"

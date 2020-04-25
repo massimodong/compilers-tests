@@ -6,12 +6,12 @@ We are now on Lab3. Switch to branch `L1` or `L1-hard` for Lab1. Switch to branc
 
 使用方法：
 
-第一次运行执行 `./run.sh path_to_parser_binary` 。`path_to_parser_binary` 为编译好的 parser 文件。  
+第一次运行执行 `./run.sh path_to_parser_binary` 。`path_to_parser_binary` 为编译好的 parser 文件。 
 之后只需要执行 `./run.sh`。 
 
 ## 测试原理
 
-使用了[github.com/wierton/irsim](欧先飞学长用C++写的ir解释器)。
+使用了[欧先飞学长用C++写的ir解释器](github.com/wierton/irsim)。
 
 做了几处小修改
 
