@@ -6,7 +6,7 @@ We are now on Lab3. Switch to branch `L1` or `L1-hard` for Lab1. Switch to branc
 
 使用方法：
 
-第一次运行执行 `./run.sh path_to_parser_binary` 。`path_to_parser_binary` 为编译好的 parser 文件。  
+第一次运行执行 `./run.sh path_to_parser_binary` 。`path_to_parser_binary` 为编译好的 parser 文件。 
 之后只需要执行 `./run.sh`。 
 
 ## 测试原理
