@@ -32,7 +32,7 @@ T *lohi_to_ptr(uint32_t lo, uint32_t hi) {
 
 /* clang-format off */
 enum class Exception {
-  IF, LOAD, STORE, DIV_ZERO, TIMEOUT, OOM, ABORT, INVOP,
+  IF, LOAD, STORE, DIV_ZERO, TIMEOUT, OOM, ABORT, INVOP, EOF_OCCUR, NO_EXCEPT,
 };
 
 enum class Stmt {
@@ -76,10 +76,13 @@ public:
       return ret;
     } else {
       int ret;
-      fmt::printf("please input a number: ");
+      //fmt::printf("please input a number: ");
       (*is) >> ret;
       return ret;
     }
+  }
+  bool eof() {
+      return is->eof();
   }
 };
 
@@ -139,6 +142,7 @@ public:
   Program()
       : io(std::cin, std::cout),
         memory_limit(4 * 1024 * 1024), insts_limit(-1u) {
+    exception = Exception::NO_EXCEPT;
     inst_counter = 0;
     curblk = new TransitionBlock;
     codes.push_back(
@@ -330,6 +334,8 @@ inline std::ostream &operator<<(
   case Exception::OOM: os << "OOM"; break;
   case Exception::ABORT: os << "ABORT"; break;
   case Exception::INVOP: os << "INVOP"; break;
+  case Exception::EOF_OCCUR: os << "EOF occured"; break;
+  case Exception::NO_EXCEPT: os << "0"; break;
   };
   return os;
 }

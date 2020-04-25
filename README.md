@@ -9,17 +9,18 @@ We are now on Lab3. Switch to branch `L1` or `L1-hard` for Lab1. Switch to branc
 第一次运行执行 `./run.sh path_to_parser_binary` 。`path_to_parser_binary` 为编译好的 parser 文件。  
 之后只需要执行 `./run.sh`。 
 
-# IR 模拟器说明
+## 测试原理
 
-脚本执行需要实现一个 CLI 的 IR 模拟器 `irsim.py`：
+使用了[github.com/wierton/irsim](欧先飞学长用C++写的ir解释器)。
 
-- 模拟器接受一个参数：IR 文件路径
-- 对于 READ/WRITE 指令，从标准输入读取，输出到标准输出。
-- 对于模拟器本身的相关输出，均输出到标准错误输出。
+做了几处小修改
 
-目前 `irsim.py` 没有实现。
+- 原版在遇到read函数时会打印提示信息(stdout)，对了方便比对输出，该脚本将提示信息删除了
+- 在输入结束后，如果IR代码仍然需要read(这通常是由于分支跳转有问题导致的)，则视为runtime error
 
-# 添加测试文件
+会根据test.json里面的信息，将里面的输入作为ir代码解释执行的输入，然后比对ir代码的输出和test.json里面的输出是否吻合
+
+## 添加测试文件
 
 请添加 `test.cmm` 和 `test.in` 两个文件。其中
 
@@ -42,4 +43,4 @@ input和output分别对应输入和输出，也为**列表**，且列表的所�
 ]
 ```
 意为，naive.cmm编译成.ir后，仅有一组测试，
-该组测试的输入为空，输出为2 0 1 7四个数字。最顶层的main函数应该返回0（由于irsim没有对应接口，目前ret_val被忽略）
+该组测试的输入为空，输出为2 0 1 7四个数字。最顶层的main函数应该返回0（由于irsim没有对应接口，它的返回值是解释器的返回值，表示的是解释器是否遇到问题。所以，目前ret_val实际上会被忽略）
