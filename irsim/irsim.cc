@@ -421,6 +421,10 @@ int Program::run(int *eip) {
     case Opc::read:
       to = *eip++;
       esp[to] = io.read();
+      if(io.eof()) {
+        exception = Exception::EOF_OCCUR;
+        return -1;
+      }
       break;
     case Opc::write: to = *eip++; io.write(esp[to]);
 #ifdef DEBUG

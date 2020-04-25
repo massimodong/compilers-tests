@@ -24,7 +24,7 @@ int main(int argc, const char *argv[]) {
   prog->setInstsLimit(-1u);
   prog->setMemoryLimit(128 * 1024 * 1024);
   auto code = prog->run(compiler.getFunction("main"));
-  fmt::printf("ret with %d, reason %d\n", code,
-      (int)prog->exception);
+  fmt::printf("ret with %d, reason ", code);
+  std::cout << prog->exception << std::endl;
   return 0;
 }
