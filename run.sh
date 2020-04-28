@@ -59,6 +59,7 @@ else
     PREFIX="";
 fi;
 
+echo 0 > workdir/count
 for fcmm in ./tests/*.cmm; do
   cp $fcmm ./workdir/a.cmm
   cp ${fcmm%.cmm}.json ./workdir/a.json
@@ -77,3 +78,7 @@ for fcmm in ./tests/*.cmm; do
     continue
   fi
 done
+
+echo -n "irsim executes about "
+cat workdir/count
+echo " instructions"
