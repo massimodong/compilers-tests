@@ -136,6 +136,7 @@ class Program {
   friend class Compiler;
 
 public:
+  unsigned instruction_cnt;
   Exception exception;
 
 public:

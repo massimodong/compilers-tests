@@ -34,6 +34,11 @@ for data_in, data_out, ret_val in json.load(open(f_json)):
             else:
                 if "ret with 0, reason 0\n" != from_irsim_r.readline():
                     err(data_in, "Output mismatch!(you output more than supposed?)")
+                cnt = int(from_irsim_r.readline())
+                with open("./workdir/count", "r") as f:
+                    cnt = cnt + int(f.read())
+                with open("./workdir/count", "w") as f:
+                    f.write(str(cnt))
         except ValueError:
             err(data_in, "Output mismatch!(you output less than supposed?)")
 
