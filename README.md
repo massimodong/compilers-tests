@@ -17,6 +17,8 @@ We are now on Lab3. Switch to branch `L1` or `L1-hard` for Lab1. Switch to branc
 
 - 原版在遇到read函数时会打印提示信息(stdout)，对了方便比对输出，该脚本将提示信息删除了
 - 在输入结束后，如果IR代码仍然需要read(这通常是由于分支跳转有问题导致的)，则视为runtime error
+- irsim在运行时会统计运行的指令数。run.sh在全部运行完后会输出总共运行的指令数（不考虑失败样例）
+    + 由于欧先飞学长的irsim先将IR代码解码成了irsim::Opc类型，然后直接解释执行Opc代码，因此统计结果会比官方的略大一点
 
 会根据test.json里面的信息，将里面的输入作为ir代码解释执行的输入，然后比对ir代码的输出和test.json里面的输出是否吻合
 
