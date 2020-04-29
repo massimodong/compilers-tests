@@ -27,5 +27,5 @@ int main(int argc, const char *argv[]) {
   fmt::printf("ret with %d, reason ", code);
   std::cout << prog->exception << std::endl;
   std::cout << prog->instruction_cnt << std::endl;
-  return 0;
+  return code;
 }
