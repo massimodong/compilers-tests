@@ -136,7 +136,6 @@ class Program {
   friend class Compiler;
 
 public:
-  unsigned instruction_cnt;
   Exception exception;
 
 public:
@@ -324,23 +323,38 @@ public:
   std::unique_ptr<Program> compile(std::istream &is);
 };
 
-inline std::ostream &operator<<(
-    std::ostream &os, Exception exception) {
-  switch (exception) {
-  case Exception::IF: os << "IF"; break;
-  case Exception::LOAD: os << "LOAD"; break;
-  case Exception::STORE: os << "STORE"; break;
-  case Exception::DIV_ZERO: os << "DIV_ZERO"; break;
-  case Exception::TIMEOUT: os << "TIMEOUT"; break;
-  case Exception::OOM: os << "OOM"; break;
-  case Exception::ABORT: os << "ABORT"; break;
-  case Exception::INVOP: os << "INVOP"; break;
-  case Exception::EOF_OCCUR: os << "EOF occured"; break;
-  case Exception::NO_EXCEPT: os << "0"; break;
-  };
-  return os;
-}
-
 } // namespace irsim
+
+template <>
+struct fmt::formatter<irsim::Exception> {
+  constexpr auto parse(format_parse_context& ctx) { return ctx.begin(); }
+
+  template <typename FormatContext>
+  auto format(const irsim::Exception& d, FormatContext& ctx) {
+    switch (d) {
+    case irsim::Exception::IF:
+      return format_to(ctx.out(), "IF");
+    case irsim::Exception::LOAD:
+      return format_to(ctx.out(), "LOAD");
+    case irsim::Exception::STORE:
+      return format_to(ctx.out(), "STORE");
+    case irsim::Exception::DIV_ZERO:
+      return format_to(ctx.out(), "DIV_ZERO");
+    case irsim::Exception::TIMEOUT:
+      return format_to(ctx.out(), "TIMEOUT");
+    case irsim::Exception::OOM:
+      return format_to(ctx.out(), "OOM");
+    case irsim::Exception::ABORT:
+      return format_to(ctx.out(), "ABORT");
+    case irsim::Exception::INVOP:
+      return format_to(ctx.out(), "INVOP");
+    case irsim::Exception::EOF_OCCUR:
+      return format_to(ctx.out(), "EOF occured");
+    case irsim::Exception::NO_EXCEPT:
+      return format_to(ctx.out(), "0");
+    };
+    return format_to(ctx.out(), "???");
+  }
+};
 
 #endif
