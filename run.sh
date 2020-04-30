@@ -7,11 +7,9 @@ NORMAL=$(tput sgr0)
 
 cd $(dirname $0)
 
-if ! [ -e irsim/build/irsim ];
-then
-    echo "Making irsim"
-    make -C irsim
-fi
+echo "Making(Updating) irsim"
+make -C irsim
+
 if ! [ -z $1 ]
 then
   rm ./workdir/saved_binary.sh 2> /dev/null
