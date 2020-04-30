@@ -105,9 +105,7 @@ int Program::run(int *eip) {
   eip = &_start[0];
   auto esp = SafePointer<int>(&stack[0], stack.size());
 
-  this -> instruction_cnt = 0;
   while (true) {
-      ++instruction_cnt;
 #ifdef DEBUG
     auto oldeip = eip;
 #endif
