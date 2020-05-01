@@ -8,7 +8,8 @@ struct ScoreClass {
 };
 int average(struct ScoreClass class) {
     int scoreSum = 0;
-    int i, N = class.num;
+    int i = 0; 
+    int N = class.num;
     while (i < N) {
         scoreSum = class.scoreDetail[i].score + scoreSum;
         i = i + 1;
