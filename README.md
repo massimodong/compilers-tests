@@ -23,7 +23,7 @@ We are now on Lab3. Switch to branch `L1` or `L1-hard` for Lab1. Switch to branc
 
 ## 添加测试文件
 
-请添加 `test.cmm` 和 `test.in` 两个文件。其中
+请添加 `test.cmm` 和 `test.json` 两个文件。其中
 
 * `test.cmm` 是源码文件
 * `test.json` 是答案描述文件，格式为
