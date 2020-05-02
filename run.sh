@@ -72,7 +72,7 @@ for fcmm in ./tests/*.cmm; do
   if $PREFIX python ./check.py; then
     echo test [$(basename $fcmm)] matched
   else
-    report_error "mismatch"
+    report_error "mismatch or TLE"
     continue
   fi
 done
