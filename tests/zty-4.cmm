@@ -1,20 +1,20 @@
-int sort(int a[10], int n) {
-  int cnt = 0;
-  int i = 0, j = 0;
-  while (i < n) {
-    j = 0;
-    while (j < n - i - 1) {
-      if (a[j] > a[j + 1]) {
-        int tmp = a[j];
-        a[j] = a[j + 1];
-        a[j + 1] = tmp;
-        cnt = cnt + 1;
+int sort(int _a[10], int _n) {
+  int _cnt = 0;
+  int _i = 0, _j = 0;
+  while (_i < _n) {
+    _j = 0;
+    while (_j < _n - _i - 1) {
+      if (_a[_j] > _a[_j + 1]) {
+        int _tmp = _a[_j];
+        _a[_j] = _a[_j + 1];
+        _a[_j + 1] = _tmp;
+        _cnt = _cnt + 1;
       }
-      j = j + 1;
+      _j = _j + 1;
     }
-    i = i + 1;
+    _i = _i + 1;
   }
-  return cnt;
+  return _cnt;
 }
 
 int main() {

@@ -1,12 +1,12 @@
-int swap(int a[100], int b[100], int len) {
-  int pos = 0;
-  while (pos < len) {
-    int tmp = a[pos];
-    a[pos] = b[pos];
-    b[pos] = tmp;
-    pos = pos + 1;
+int swap(int _a[100], int _b[100], int _len) {
+  int _pos = 0;
+  while (_pos < _len) {
+    int _tmp = _a[_pos];
+    _a[_pos] = _b[_pos];
+    _b[_pos] = _tmp;
+    _pos = _pos + 1;
   }
-  return len;
+  return _len;
 }
 
 int main() {
