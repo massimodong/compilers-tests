@@ -18,7 +18,7 @@ for data_in, data_out, ret_val in json.load(open(f_json)):
         for i in data_in:
             to_irsim_w.write(str(i) + '\n')
 
-    ret = system("%s %s < %s > %s"%(program, f_ir , irsim_in , irsim_out))
+    ret = system("%s %s < %s > %s 2>/dev/null"%(program, f_ir , irsim_in , irsim_out))
     # Suppose irsim is compiled by run.sh
     if ret != 0:
         err(data_in, "runtime error occured when running your IR code");

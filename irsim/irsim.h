@@ -76,7 +76,7 @@ public:
       return ret;
     } else {
       int ret;
-      //fmt::printf("please input a number: ");
+      fmt::fprintf(stderr, "please input a number: ");
       (*is) >> ret;
       return ret;
     }
