@@ -1,6 +1,7 @@
 #ifndef IRSIM_H
 #define IRSIM_H
 
+#include <array>
 #include <iostream>
 #include <limits.h>
 #include <map>
