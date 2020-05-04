@@ -1,43 +1,45 @@
-int floyd(int dis[10][10], int n) {
-  int i = 0, j = 0, k = 0;
-  int max = 0;
-  while (k < n) {
-    i = j = 0;
-    while (i < n) {
-      j = 0;
-      while (j < n) {
-        if (dis[i][j] > dis[i][k] + dis[k][j]) {
-          dis[i][j] = dis[i][k] + dis[k][j];
+int floyd(int _dis[10][10], int _n) {
+  int _i = 0, _j = 0, _k = 0;
+  int _max = 0;
+  while (_k < _n) {
+    _i = _j = 0;
+    while (_i < _n) {
+      _j = 0;
+      while (_j < _n) {
+        if (_dis[_i][_j] > _dis[_i][_k] + _dis[_k][_j]) {
+          _dis[_i][_j] = _dis[_i][_k] + _dis[_k][_j];
         }
-        j = j + 1;
+        _j = _j + 1;
       }
-      i = i + 1;
+      _i = _i + 1;
     }
-    k = k + 1;
+    _k = _k + 1;
   }
-  i = j = 0;
-  while (i < n) {
-    j = 0;
-    while (j < n) {
-      if (dis[i][j] > max && dis[i][j] != 114514) {
-        max = dis[i][j];
+  _i = _j = 0;
+  while (_i < _n) {
+    _j = 0;
+    while (_j < _n) {
+      if (_dis[_i][_j] > _max && _dis[_i][_j] != 114514) {
+        _max = _dis[_i][_j];
       }
-      j = j + 1;
+      _j = _j + 1;
     }
-    i = i + 1;
+    _i = _i + 1;
   }
-  return max;
+  return _max;
 }
 
 int main() {
   int n = 0, m = 0, q = 0;
+  int i = 0, j = 0;
+  int u = 0, v = 0, d = 0;
   int dis[10][10];
 
   n = read();
   m = read();
   q = read();
   {
-    int i = 0, j = 0;
+    i = j = 0;
     while (i < n) {
       j = 0;
       while (j < n) {
@@ -52,8 +54,7 @@ int main() {
   }
 
   {
-    int i = 0;
-    int u = 0, v = 0, d = 0;
+    i = u = v = d = 0;
     while (i < m) {
       u = read();
       v = read();
@@ -66,8 +67,7 @@ int main() {
   write(floyd(dis, n));
 
   {
-    int i = 0;
-    int u = 0, v = 0;
+    i = u = v = 0;
     while (i < q) {
       u = read();
       v = read();
