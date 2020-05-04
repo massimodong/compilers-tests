@@ -7,7 +7,7 @@ OBJS := $(patsubst %.cc,$(OBJ_DIR)/%.o,$(SRCS))
 BIN := $(OBJ_DIR)/irsim
 
 .DEFAULT_GOAL := $(BIN)
-CXXFLAGS := -Iinclude -std=c++17 -O0 -ggdb3 -Wall -MMD
+CXXFLAGS := -Iinclude -std=c++14 -O0 -ggdb3 -Wall -MMD
 -include $(OBJS:.o=.d)
 
 $(ANTLR_SRCS): IR.g4

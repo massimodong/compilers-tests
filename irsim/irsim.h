@@ -239,11 +239,6 @@ class Compiler {
       bool (Compiler::*)(Program *, const std::string &)>
       handlers;
 
-  static constexpr int m1[] = {1};
-  static constexpr int m2[] = {1, 2};
-  static constexpr int m3[] = {1, 2, 3};
-  static constexpr int m4[] = {1, 2, 3, 4};
-
   int primary_exp(Program *prog, const std::string &tok,
       int to = INT_MAX);
 

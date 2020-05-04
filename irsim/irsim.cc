@@ -18,6 +18,12 @@
 // #define DEBUG
 // #define SAFE_POINTER
 
+
+static const std::vector<int> m1 = {1};
+static const std::vector<int> m2 = {1, 2};
+static const std::vector<int> m3 = {1, 2, 3};
+static const std::vector<int> m4 = {1, 2, 3, 4};
+
 namespace irsim {
 
 /* clang-format off */
@@ -122,7 +128,7 @@ int Program::run(int *eip) {
 #ifdef DEBUG
     fmt::printf("stack:\n");
     auto sp_value = (ptrdiff_t)(esp - &stack[0]);
-    constexpr int step = 6;
+    const int step = 6;
     for (auto i = 0u; i < stack.size(); i += step) {
       fmt::printf("%02d:", i);
       for (auto j = i; j < i + step && j < stack.size();
