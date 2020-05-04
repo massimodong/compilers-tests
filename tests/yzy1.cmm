@@ -20,8 +20,8 @@ int five() {
     return succ(four());
 }
 int main() {
-    int i = five() * four();
-    write(i);
+    int ii = five() * four();
+    write(ii);
     return 0;
 }
 
