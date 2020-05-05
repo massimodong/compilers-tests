@@ -13,54 +13,54 @@ int display(int array[10], int maxlen) {
 
 int quicksort(int arr[10], int low, int high) {
     if (low < high) {
-        int i = low;
+        int qi = low;
         int j = high;
         int k = arr[low];
-        while (i < j) {
-            while (i < j && arr[j] >= k) {
+        while (qi < j) {
+            while (qi < j && arr[j] >= k) {
                 j = j - 1;
             }
 
-            if (i < j) {
-                arr[i] = arr[j];
-                i = i + 1;
+            if (qi < j) {
+                arr[qi] = arr[j];
+                qi = qi + 1;
             }
 
-            while (i < j && arr[i] < k) {
-                i = i + 1;
+            while (qi < j && arr[qi] < k) {
+                qi = qi + 1;
             }
 
-            if (i < j) {
-                arr[j] = arr[i];
+            if (qi < j) {
+                arr[j] = arr[qi];
                 j = j - 1;
             }
         }
 
-        arr[i] = k;
+        arr[qi] = k;
 
-        quicksort(arr, low, i - 1);
-        quicksort(arr, i + 1, high);
+        quicksort(arr, low, qi - 1);
+        quicksort(arr, qi + 1, high);
     }
 
     return 0;
 }
 
 int main() {
-    int array[10];
-    int maxlen = 10;
-    array[0] = 12;
-    array[1] = 85;
-    array[2] = 25;
-    array[3] = 16;
-    array[4] = 34;
-    array[5] = 23;
-    array[6] = 49;
-    array[7] = 95;
-    array[8] = 17;
-    array[9] = 61;
+    int marray[10];
+    int mmaxlen = 10;
+    marray[0] = 12;
+    marray[1] = 85;
+    marray[2] = 25;
+    marray[3] = 16;
+    marray[4] = 34;
+    marray[5] = 23;
+    marray[6] = 49;
+    marray[7] = 95;
+    marray[8] = 17;
+    marray[9] = 61;
 
-    display(array, maxlen);
-    quicksort(array, 0, maxlen - 1);
-    display(array, maxlen);
+    display(marray, mmaxlen);
+    quicksort(marray, 0, mmaxlen - 1);
+    display(marray, mmaxlen);
     return 0;
 }
