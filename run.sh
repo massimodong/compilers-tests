@@ -7,6 +7,9 @@ NORMAL=$(tput sgr0)
 
 cd $(dirname $0)
 
+echo "Making(Updating) irsim"
+make -C irsim
+
 if ! [ -z $1 ]
 then
   rm ./workdir/saved_binary.sh 2> /dev/null
@@ -37,20 +40,43 @@ echo "RUN=$RUN" > ./workdir/saved_binary.sh
 
 mkdir -p ./workdir
 
+report_error(){
+  echo -e "${RED}${BOLD}test [$(basename $fcmm)]" "$1" "${NC}${NORMAL}"
+  read -p "Enter [c] to continue, or [Enter] to abort: " txt
+  if [ -z "$txt" ] || [ $txt != 'c' ]
+  then
+    exit 1
+  fi
+}
+
+if timeout --help > /dev/null 2>&1; then #if has `timeout` command
+    PREFIX="timeout 10 ";
+else
+    echo "timeout command is not support in current environment"
+    echo "running time will not be counted"
+    PREFIX="";
+fi;
+
+echo 0 > workdir/count
 for fcmm in ./tests/*.cmm; do
   cp $fcmm ./workdir/a.cmm
   cp ${fcmm%.cmm}.json ./workdir/a.json
 
-  $RUN ./workdir/a.cmm > ./workdir/a.out 2>&1
+  if $PREFIX $RUN ./workdir/a.cmm  ./workdir/a.ir 2>&1; then
+      true; #do nothing
+  else
+      report_error "RE or TLE"
+      continue
+  fi;
 
-  if python ./check.py; then
+  if $PREFIX python ./check.py; then
     echo test [$(basename $fcmm)] matched
   else
-    echo -e "${RED}${BOLD}test [$(basename $fcmm)] mismatch${NC}${NORMAL}"
-    read -p "Enter [c] to continue, or [Enter] to abort: " txt
-    if [ -z "$txt" ] || [ $txt != 'c' ]
-    then
-      exit 0
-    fi
+    report_error "mismatch or TLE"
+    continue
   fi
 done
+
+echo -n "irsim executes about "
+cat workdir/count
+echo " instructions"
