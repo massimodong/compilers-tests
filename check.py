@@ -21,7 +21,10 @@ for data_in, data_out, ret_val in json.load(open(f_json)):
     ret = system("%s %s < %s > %s 2>/dev/null"%(program, f_ir , irsim_in , irsim_out))
     # Suppose irsim is compiled by run.sh
     if ret != 0:
-        err(data_in, "runtime error occured when running your IR code");
+        with open(irsim_out, 'r') as from_irsim_r:
+            err(data_in,
+                "runtime error occured when running your IR code\n"
+                + from_irsim_r.read().splitlines()[-1]);
     with open(irsim_out, 'r') as from_irsim_r:
         from_irsim_r.readline()
         # Filter out the first line "load ./workdir/a.ir"
