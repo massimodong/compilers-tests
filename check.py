@@ -29,9 +29,10 @@ for data_in, data_out, ret_val in json.load(open(f_json)):
         from_irsim_r.readline()
         # Filter out the first line "load ./workdir/a.ir"
         try:
-            for i in data_out:
-                if i != int(from_irsim_r.readline()):
-                    err(data_in, "Output mismatch!(you output a wrong number?)")
+            for i in range(len(data_out)):
+                expected = int(from_irsim_r.readline());
+                if data_out[i] != expected:
+                    err(data_in, "Output mismatch! expected %d, found %d at line %d" % (expected, data_out[i], i));
             else:
                 if "ret with 0, reason 0\n" != from_irsim_r.readline():
                     err(data_in, "Output mismatch!(you output more than supposed?)")
