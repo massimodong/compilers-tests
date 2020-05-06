@@ -1,7 +1,7 @@
 import json
 from os.path import splitext
 from sys import argv
-from os import system, pipe, close, fdopen
+from os import system
 
 def msg(s):
     print('\033[1m\033[91m' + s + '\033[0m\033[0m');
