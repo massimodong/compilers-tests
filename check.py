@@ -30,9 +30,9 @@ for data_in, data_out, ret_val in json.load(open(f_json)):
         # Filter out the first line "load ./workdir/a.ir"
         try:
             for idx, num in enumerate(data_out):
-                expected = int(from_irsim_r.readline());
-                if num != expected:
-                    err(data_in, "Output mismatch! expected %d, found %d at line %d" % (expected, num, idx));
+                user_out = int(from_irsim_r.readline());
+                if num != user_out:
+                    err(data_in, "Output mismatch! expected %d, found %d at line %d" % (num, user_out, idx));
             else:
                 if "ret with 0, reason 0\n" != from_irsim_r.readline():
                     err(data_in, "Output mismatch!(you output more than supposed?)")
