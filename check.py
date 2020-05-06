@@ -1,5 +1,5 @@
-import json;
-from os import system, pipe, close, fdopen
+import json
+from os import system
 
 def msg(s):
     print('\033[1m\033[91m' + s + '\033[0m\033[0m');
@@ -21,14 +21,18 @@ for data_in, data_out, ret_val in json.load(open(f_json)):
     ret = system("%s %s < %s > %s 2>/dev/null"%(program, f_ir , irsim_in , irsim_out))
     # Suppose irsim is compiled by run.sh
     if ret != 0:
-        err(data_in, "runtime error occured when running your IR code");
+        with open(irsim_out, 'r') as from_irsim_r:
+            err(data_in,
+                "runtime error occured when running your IR code\n"
+                + from_irsim_r.read().splitlines()[-1]);
     with open(irsim_out, 'r') as from_irsim_r:
         from_irsim_r.readline()
         # Filter out the first line "load ./workdir/a.ir"
         try:
-            for i in data_out:
-                if i != int(from_irsim_r.readline()):
-                    err(data_in, "Output mismatch!(you output a wrong number?)")
+            for idx, num in enumerate(data_out):
+                expected = int(from_irsim_r.readline());
+                if num != expected:
+                    err(data_in, "Output mismatch! expected %d, found %d at line %d" % (expected, num, idx));
             else:
                 if "ret with 0, reason 0\n" != from_irsim_r.readline():
                     err(data_in, "Output mismatch!(you output more than supposed?)")
@@ -40,4 +44,4 @@ for data_in, data_out, ret_val in json.load(open(f_json)):
         except ValueError:
             err(data_in, "Output mismatch!(you output less than supposed?)")
 
-exit(0);
+exit(0)

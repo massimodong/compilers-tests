@@ -1,5 +1,5 @@
 workdir/*
-irsim-py/
-.gitignore
-parser
+irsim-py/	
+parser	
 my.sh
+.DS_Store

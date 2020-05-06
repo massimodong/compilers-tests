@@ -7,7 +7,7 @@
 int main(int argc, const char *argv[]) {
   if (argc <= 1) {
     fmt::printf("usage: irsim [*.ir]\n");
-    return 0;
+    return -1;
   }
 
   fmt::printf("load %s\n", argv[1]);
@@ -15,7 +15,7 @@ int main(int argc, const char *argv[]) {
 
   if (!ifs.good()) {
     fmt::printf("'%s' no such file\n", argv[1]);
-    return 0;
+    return -1;
   }
 
   using namespace irsim;
