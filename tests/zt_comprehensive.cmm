@@ -26,8 +26,8 @@ struct some_struct {
 };
 
 
-int func_overflow(int arr[1]) {
-    arr[-1] = arr[1];
+int func_overflow(int _arr[1]) {
+    _arr[-1] = _arr[1];
     return 0;
 }
 
