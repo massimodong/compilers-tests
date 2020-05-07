@@ -1,5 +1,6 @@
 import json
 from os import system
+from itertools import count
 
 def msg(s):
     print('\033[1m\033[91m' + s + '\033[0m\033[0m');
@@ -29,17 +30,16 @@ for data_in, data_out, ret_val in json.load(open(f_json)):
         from_irsim_r.readline()
         # Filter out the first line "load ./workdir/a.ir"
         try:
-            for idx, num in enumerate(data_out):
-                expected = int(from_irsim_r.readline());
-                if num != expected:
-                    err(data_in, "Output mismatch! expected %d, found %d at line %d" % (expected, num, idx));
+            for idx, expect, user_out in zip(count(1), data_out, from_irsim_r):
+                user_out = int(user_out)
+                if expect != user_out:
+                    err(data_in, "Output mismatch! expected %d, found %d at line %d" % (expect, user_out, idx));
             else:
                 if "ret with 0, reason 0\n" != from_irsim_r.readline():
                     err(data_in, "Output mismatch!(you output more than supposed?)")
-                cnt = int(from_irsim_r.readline())
-                with open("./workdir/count", "r") as f:
-                    cnt = cnt + int(f.read())
-                with open("./workdir/count", "w") as f:
+                with open("./workdir/count", "r+") as f:
+                    cnt = int(from_irsim_r.readline()) + int(f.read())
+                    f.seek(0)
                     f.write(str(cnt))
         except ValueError:
             err(data_in, "Output mismatch!(you output less than supposed?)")
