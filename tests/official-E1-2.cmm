@@ -7,12 +7,14 @@ int main() {
     struct Worker worker[10];
     int i, j, add, N = 10;
     int final = 0;
+    i = 0;
     while (i < N) {
         worker[i].salary = 100;
         worker[i].year = i;
         worker[i].esca = i * i - i + 2;
         i = i + 1;
     }
+    j = 0;
     while (j < N) {
         if (worker[j].year < 3)
             add = 1;
