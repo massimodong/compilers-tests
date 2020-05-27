@@ -8,9 +8,9 @@ def err(data_in, s):
     msg("Wrong on input " + str(data_in) + "\n" + s)
     exit(1)
 
-f_ir   = "./workdir/a.ir";
+f_ir   = "./workdir/a.s";
 f_json = "./workdir/a.json";
-program = "irsim/build/irsim"
+program = "spim -file"
 irsim_in  = './workdir/irsim_in'
 irsim_out = './workdir/irsim_out'
 
@@ -35,12 +35,13 @@ for data_in, data_out, ret_val in json.load(open(f_json)):
                 if expect != user_out:
                     err(data_in, "Output mismatch! expected %d, found %d at line %d" % (expect, user_out, idx));
             else:
-                if "ret with 0, reason 0\n" != from_irsim_r.readline():
-                    err(data_in, "Output mismatch!(you output more than supposed?)")
-                with open("./workdir/count", "r+") as f:
-                    cnt = int(from_irsim_r.readline()) + int(f.read())
-                    f.seek(0)
-                    f.write(str(cnt))
+                pass
+                #if "ret with 0, reason 0\n" != from_irsim_r.readline():
+                #    err(data_in, "Output mismatch!(you output more than supposed?)")
+                #with open("./workdir/count", "r+") as f:
+                #    cnt = int(from_irsim_r.readline()) + int(f.read())
+                #    f.seek(0)
+                #    f.write(str(cnt))
         except ValueError:
             err(data_in, "Output mismatch!(you output less than supposed?)")
 
