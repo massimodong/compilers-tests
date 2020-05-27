@@ -1,25 +1,14 @@
 # compilers-tests
 
-We are now on Lab3. Switch to branch `L1` or `L1-hard` for Lab1. Switch to branch `L2` for Lab2.
+We are now on Lab4. Switch to branch `L1` or `L1-hard` for Lab1. Switch to branch `L2` for Lab2. Switch to branch `L3` for Lab3.
 
-编译原理 Lab3 一键测试脚本。
+编译原理 Lab4 一键测试脚本。
 
 使用方法：
 
+请先安装`spim`模拟器。  
 第一次运行执行 `./run.sh path_to_parser_binary` 。`path_to_parser_binary` 为编译好的 parser 文件。 
 之后只需要执行 `./run.sh`。 
-
-## 测试原理
-
-使用了[欧先飞学长用C++写的ir解释器](https://www.github.com/wierton/irsim)。
-
-做了几处小修改
-
-- 原版在遇到read函数时会打印提示信息(stdout)，对了方便比对输出，该脚本将提示信息删除了
-- 在输入结束后，如果IR代码仍然需要read(这通常是由于分支跳转有问题导致的)，则视为runtime error
-- irsim在运行时会统计运行的指令数。run.sh在全部运行完后会输出总共运行的指令数（不考虑失败样例）
-
-会根据test.json里面的信息，将里面的输入作为ir代码解释执行的输入，然后比对ir代码的输出和test.json里面的输出是否吻合
 
 ## 添加测试文件
 
