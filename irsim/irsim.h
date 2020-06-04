@@ -2,15 +2,15 @@
 #define IRSIM_H
 
 #include <array>
+#include <cassert>
+#include <climits>
 #include <iostream>
-#include <limits.h>
 #include <map>
 #include <memory>
+#include <sstream>
+#include <stdexcept>
 #include <string>
-#include <utility>
 #include <vector>
-
-#include "fmt/printf.h"
 
 namespace irsim {
 
@@ -33,25 +33,24 @@ T *lohi_to_ptr(uint32_t lo, uint32_t hi) {
 
 /* clang-format off */
 enum class Exception {
-  IF, LOAD, STORE, DIV_ZERO, TIMEOUT, OOM, ABORT, INVOP, EOF_OCCUR, NO_EXCEPT,
+  NONE, IF, LOAD, STORE, DIV_ZERO, OF, TIMEOUT, OOM, ABORT,
+  INVOP,
 };
 
-enum class Stmt {
-  begin,
-  label = Stmt::begin,
-  func, assign, add, sub, mul, div, takeaddr, deref,
-  deref_assign, goto_, branch, ret, dec, arg, call,
-  param, read, write,
-  end,
+enum CtrlRegs {
+  CR_RET,    // rw, used for return address
+  CR_SERIAL, // read only
+  CR_COUNT,  // rw
+  CR_ARG,    // rw
 };
 
 enum class Opc {
   abort, // as 0
-  inst_begin,
   helper, // native call
-  arg, param, lai, la, ld, st, inc_esp, li, mov, add, sub,
-  mul, div, br, cond_br, lt, le, eq, ge, gt, ne, alloca,
-  call, ret, read, write,
+  alloca,
+  la, ld, st, li, mov, add, sub,
+  mul, div, jmp, br, slt, sle, seq, sge, sgt, sne,
+  call, ret, mfcr, mtcr, mark,
   quit,
 };
 /* clang-format on */
@@ -77,13 +76,10 @@ public:
       return ret;
     } else {
       int ret;
-      fmt::fprintf(stderr, "please input a number: ");
+      // printf("please input a number: ");
       (*is) >> ret;
       return ret;
     }
-  }
-  bool eof() {
-      return is->eof();
   }
 };
 
@@ -115,49 +111,96 @@ public:
       : ProgramInput(in), ProgramOutput(out) {}
 };
 
+template <class T>
+class span {
+  std::vector<T> &container;
+  size_t ptr;
+  size_t _size;
+
+public:
+  span() : container(*(std::vector<T> *)nullptr) {}
+  span(std::vector<T> &container, size_t ptr, size_t size)
+      : container(container), ptr(ptr), _size(size) {}
+
+  using iterator = typename std::vector<T>::iterator;
+  using const_iterator =
+      typename std::vector<T>::const_iterator;
+
+  span(span &&) = default;
+  span(const span &) = default;
+  span &operator=(span &&) = default;
+  span &operator=(const span &) = default;
+
+  void resize(size_t newSize) {
+    if (ptr + newSize > container.size())
+      throw std::length_error("invalid new size");
+    _size = newSize;
+  }
+
+  size_t size() const { return _size; }
+
+  iterator begin() { return container.begin() + ptr; }
+  const_iterator begin() const {
+    return container.begin() + ptr;
+  }
+  iterator end() { return container.begin() + ptr + _size; }
+  const_iterator end() const {
+    return container.begin() + ptr + _size;
+  }
+
+  T &at(size_t i) {
+    if (i >= _size) throw std::range_error("out of range");
+    return container.at(ptr + i);
+  }
+  const T &at(size_t i) const {
+    if (i >= _size) throw std::range_error("out of range");
+    return container.at(ptr + i);
+  }
+  T &operator[](size_t i) { return container[ptr + i]; }
+  const T &operator[](size_t i) const {
+    return container[ptr + i];
+  }
+};
+
 class Program {
   ProgramIO io;
 
-  unsigned memory_limit;
-  unsigned insts_limit;
-
-  unsigned inst_counter;
+  unsigned memory_limit = -1u;
+  unsigned insts_limit = -1u;
 
   std::vector<std::unique_ptr<TransitionBlock>> codes;
-  TransitionBlock *curblk;
-  int *textptr;
-
-  std::vector<std::unique_ptr<int[]>> mempool;
-
-  /* running context */
-  std::vector<int> stack;
-  int *esp;
-  int *curf;
+  TransitionBlock *curblk = nullptr;
+  int *textptr = nullptr;
+  int *curf = nullptr;
 
   friend class Compiler;
 
-public:
-  Exception exception;
+  /* running environment */
+  std::vector<int> args;
+  std::vector<int *> frames;
+  std::vector<int> memory;
+  std::vector<span<int>> stack;
+  std::array<uint32_t, 6> ctrl_regs = {};
+
+  Exception exception = Exception::NONE;
 
 public:
-  Program()
-      : io(std::cin, std::cout),
-        memory_limit(4 * 1024 * 1024), insts_limit(-1u) {
-    exception = Exception::NO_EXCEPT;
-    inst_counter = 0;
+  Program() : io(std::cin, std::cout) {
     curblk = new TransitionBlock;
     codes.push_back(
         std::unique_ptr<TransitionBlock>(curblk));
     textptr = &curblk->at(0);
 
-    curf = gen_inst(Opc::quit, Opc::quit);
+    curf = gen_inst(Opc::quit, 0);
   }
 
+  int run(int *eip);
   void setMemoryLimit(unsigned lim) { memory_limit = lim; }
-
   void setInstsLimit(unsigned lim) { insts_limit = lim; }
-
-  unsigned getInstCounter() const { return inst_counter; }
+  unsigned getInstCounter() const {
+    return ctrl_regs[CR_COUNT];
+  }
+  Exception getException() const { return exception; }
 
   void setIO(ProgramIO io) { this->io = io; }
   void setInput(ProgramInput in) {
@@ -167,13 +210,14 @@ public:
     static_cast<ProgramOutput &>(this->io) = out;
   }
 
+private:
   int *get_textptr() const { return textptr; }
   void check_eof(unsigned N) {
     if (textptr + N + 2 >= &(*curblk)[curblk->size()]) {
       curblk = new TransitionBlock;
       codes.push_back(
           std::unique_ptr<TransitionBlock>(curblk));
-      *textptr++ = (int)Opc::br;
+      *textptr++ = (int)Opc::jmp;
       *textptr++ = ptr_lo(&(curblk->at(0)));
       *textptr++ = ptr_hi(&(curblk->at(0)));
       textptr = &curblk->at(0);
@@ -192,13 +236,13 @@ public:
     }
 
 #ifdef DEBUG
-    fmt::printf(
-        "  %p: %s", fmt::ptr(oldptr), opc_to_string[opc]);
+    extern std::map<Opc, std::string> opc_to_string;
+    printf("+ %p: %s", oldptr, opc_to_string[opc].c_str());
     for (int v :
         std::array<int, N>{static_cast<int>(args)...}) {
-      fmt::printf("0x%x ", v);
+      printf(" 0x%x", v);
     }
-    fmt::printf("\n");
+    printf("\n");
 #endif
     return oldptr;
   }
@@ -208,36 +252,26 @@ public:
         Opc::call, ptr_lo(target), ptr_hi(target));
   }
 
-  int *gen_br(int *target) {
+  int *gen_jmp(int *target) {
     return gen_inst(
-        Opc::br, ptr_lo(target), ptr_hi(target));
+        Opc::jmp, ptr_lo(target), ptr_hi(target));
   }
 
-  int *gen_cond_br(int cond, int *target) {
+  int *gen_br(int cond, int *target) {
     return gen_inst(
-        Opc::cond_br, cond, ptr_lo(target), ptr_hi(target));
+        Opc::br, cond, ptr_lo(target), ptr_hi(target));
   }
-
-  int run(int *eip);
 };
 
 class Compiler {
+  int temp_ptr;
+  static constexpr int temp_end = 4;
   int stack_size;
-  int args_size;
-
   std::map<std::string, int> vars;
   std::map<std::string, int *> funcs;
   std::map<std::string, int *> labels;
-
   std::map<int, bool> temps;
-
   std::map<std::string, std::vector<int *>> backfill_labels;
-
-  std::vector<int *> backfill_args;
-
-  static std::map<Stmt,
-      bool (Compiler::*)(Program *, const std::string &)>
-      handlers;
 
   static constexpr int m1[] = {1};
   static constexpr int m2[] = {1, 2};
@@ -247,30 +281,40 @@ class Compiler {
   int primary_exp(Program *prog, const std::string &tok,
       int to = INT_MAX);
 
-  bool handle_label(Program *, const std::string &line);
-  bool handle_func(Program *, const std::string &line);
-  bool handle_assign(Program *, const std::string &line);
-  bool handle_arith(Program *, const std::string &line);
-  bool handle_takeaddr(Program *, const std::string &line);
-  bool handle_deref(Program *, const std::string &line);
+  using TokenList = std::vector<std::string>;
+
+  bool handle_label(Program *, const TokenList &toks);
+  bool handle_func(Program *, const TokenList &toks);
+  bool handle_assign(Program *, const TokenList &toks);
+  bool handle_arith(Program *, const TokenList &toks);
+  bool handle_takeaddr(Program *, const TokenList &toks);
+  bool handle_deref(Program *, const TokenList &toks);
   bool handle_deref_assign(
-      Program *, const std::string &line);
-  bool handle_goto_(Program *, const std::string &line);
-  bool handle_branch(Program *, const std::string &line);
-  bool handle_ret(Program *, const std::string &line);
-  bool handle_dec(Program *, const std::string &line);
-  bool handle_arg(Program *, const std::string &line);
-  bool handle_call(Program *, const std::string &line);
-  bool handle_param(Program *, const std::string &line);
-  bool handle_read(Program *, const std::string &line);
-  bool handle_write(Program *, const std::string &line);
+      Program *, const TokenList &toks);
+  bool handle_goto_(Program *, const TokenList &toks);
+  bool handle_branch(Program *, const TokenList &toks);
+  bool handle_ret(Program *, const TokenList &toks);
+  bool handle_dec(Program *, const TokenList &toks);
+  bool handle_arg(Program *, const TokenList &toks);
+  bool handle_call(Program *, const TokenList &toks);
+  bool handle_param(Program *, const TokenList &toks);
+  bool handle_read(Program *, const TokenList &toks);
+  bool handle_write(Program *, const TokenList &toks);
+
+  TokenList splitTokens(const std::string line) {
+    std::string tmp;
+    std::vector<std::string> out;
+    std::istringstream iss(line);
+    while (iss >> tmp) out.push_back(tmp);
+    return out;
+  }
 
 public:
   Compiler() { clear_env(); }
 
   void clear_env() {
-    stack_size = 1;
-    args_size = -2;
+    temp_ptr = 0;
+    stack_size = temp_end; // 0 for return value
     vars.clear();
     labels.clear();
   }
@@ -286,76 +330,24 @@ public:
           std::pair<std::string, int>{name, stack_size});
       stack_size += size;
     }
+#ifdef DEBUG
+    fprintf(stdout, "allocate %d for %s\n", it->second,
+        name.c_str());
+#endif
     return it->second;
   }
 
-  void clearTemps() {
-    for (auto &kvpair : temps) kvpair.second = false;
-  }
+  void clearTemps() { temp_ptr = 0; }
 
   int newTemp() {
-    for (auto &kvpair : temps) {
-      if (!kvpair.second) {
-        kvpair.second = true;
-        return kvpair.first;
-      }
-    }
-
-    auto tmp = stack_size++;
-    temps[tmp] = true;
+    int tmp = temp_ptr++;
+    assert(tmp < temp_end);
     return tmp;
-  }
-
-  int newArg() {
-    stack_size++;
-    return stack_size - 1;
-  }
-
-  int getRet() { return -1; }
-
-  int getParam(const std::string &name) {
-    auto it = vars.find(name);
-    if (it == vars.end())
-      std::tie(it, std::ignore) = vars.insert(
-          std::pair<std::string, int>{name, args_size--});
-    return it->second;
   }
 
   std::unique_ptr<Program> compile(std::istream &is);
 };
 
 } // namespace irsim
-
-template <>
-struct fmt::formatter<irsim::Exception> {
-  constexpr auto parse(format_parse_context& ctx) { return ctx.begin(); }
-
-  template <typename FormatContext>
-  auto format(const irsim::Exception& d, FormatContext& ctx) {
-    switch (d) {
-    case irsim::Exception::IF:
-      return format_to(ctx.out(), "IF");
-    case irsim::Exception::LOAD:
-      return format_to(ctx.out(), "LOAD");
-    case irsim::Exception::STORE:
-      return format_to(ctx.out(), "STORE");
-    case irsim::Exception::DIV_ZERO:
-      return format_to(ctx.out(), "DIV_ZERO");
-    case irsim::Exception::TIMEOUT:
-      return format_to(ctx.out(), "TIMEOUT");
-    case irsim::Exception::OOM:
-      return format_to(ctx.out(), "OOM");
-    case irsim::Exception::ABORT:
-      return format_to(ctx.out(), "ABORT");
-    case irsim::Exception::INVOP:
-      return format_to(ctx.out(), "INVOP");
-    case irsim::Exception::EOF_OCCUR:
-      return format_to(ctx.out(), "EOF occured");
-    case irsim::Exception::NO_EXCEPT:
-      return format_to(ctx.out(), "0");
-    };
-    return format_to(ctx.out(), "???");
-  }
-};
 
 #endif
