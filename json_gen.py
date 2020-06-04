@@ -54,7 +54,7 @@ for data_in, dummy, ret_val in json.load(open(f_json)):
                 "runtime error occured when running your IR code\n"
                 + from_irsim_r.read().splitlines()[-1]);
     with open(irsim_out, 'r') as from_irsim_r:
-        output_lines = from_irsim_r.readlines()[1:-2]
+        output_lines = from_irsim_r.readlines()[:-1]
         output_lines = list(map(int, output_lines))
         data_with_output.append([data_in, output_lines, 0])
 
