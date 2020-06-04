@@ -4,6 +4,7 @@
 
 // #define LOGIR
 // #define DEBUG
+#define IGNORE_CERTAIN_EXCEPTION
 
 #ifdef DEBUG
 #  define dbgs(...) fprintf(stdout, __VA_ARGS__)
@@ -103,8 +104,10 @@ int Program::run(int *eip) {
       int from = stack.back().at(*eip++);
       dbgs("%p: ld %d, (%d)\n", oldeip, to, from);
       if (memory.size() * 4 <= (size_t)from) {
+#ifndef IGNORE_CERTAIN_EXCEPTION
         exception = Exception::LOAD;
         return -1;
+#endif
       } else {
         uint8_t *from_ptr = (uint8_t *)&memory[0] + from;
         uint8_t *to_ptr = (uint8_t *)&stack.back().at(to);
@@ -116,8 +119,10 @@ int Program::run(int *eip) {
       int from = *eip++;
       dbgs("%p: st (%d), %d\n", oldeip, to, from);
       if (memory.size() * 4 <= (size_t)to) {
+#ifndef IGNORE_CERTAIN_EXCEPTION
         exception = Exception::STORE;
         return -1;
+#endif
       } else {
         uint8_t *from_ptr =
             (uint8_t *)&stack.back().at(from);
@@ -169,12 +174,16 @@ int Program::run(int *eip) {
       int lhs = *eip++;
       int rhs = *eip++;
       if (stack.back().at(rhs) == 0) {
+#ifndef IGNORE_CERTAIN_EXCEPTION
         exception = Exception::DIV_ZERO;
         return -1;
+#endif
       } else if (stack.back().at(lhs) == INT_MIN &&
                  stack.back().at(rhs) == -1) {
+#ifndef IGNORE_CERTAIN_EXCEPTION
         exception = Exception::OF;
         return -1;
+#endif
       } else {
         int lhsVal = stack.back().at(lhs);
         int rhsVal = stack.back().at(rhs);
