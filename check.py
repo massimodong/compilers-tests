@@ -19,7 +19,7 @@ for data_in, data_out, ret_val in json.load(open(f_json)):
         for i in data_in:
             to_spim_w.write(str(i) + '\n')
 
-    ret = system(f"{program} {spim_file} < {spim_in} 2>/dev/null | grep --invert-match 'Enter an integer:' > {spim_out}")
+    ret = system(f"{program} {spim_file} < {spim_in} 2>/dev/null | sed -e s/'\(Enter an integer:\)\+'/''/ > {spim_out}")
     # Suppose irsim is compiled by run.sh
     if ret != 0:
         with open(spim_out, 'r') as from_spim_r:
