@@ -1,0 +1,14 @@
+struct Counter {
+    int cnt;
+};
+int crazy(int i1, struct Counter c1, int i2, struct Counter c2, int i3) {
+    write(c2.cnt = c1.cnt + 1);
+    return i1 + i2 + i3;
+}
+int main() {
+    struct Counter c;
+    c.cnt = 0;
+    write(crazy(crazy(2, c, -2, c, 2), c, 0, c, crazy(1, c, 0, c, crazy(2, c, 0, c, 0))));
+    return 0;
+}
+
