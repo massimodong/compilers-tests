@@ -1,0 +1,14 @@
+struct Counter {
+    int cnt;
+};
+int inc_and_print(struct Counter c1, struct Counter c2, int dummy) {
+    write(c2.cnt = c1.cnt + 1);
+    return dummy;
+}
+int main() {
+    struct Counter c;
+    c.cnt = 0;
+    write(inc_and_print(c, c, inc_and_print(c, c, inc_and_print(c, c, 4))));
+    return 0;
+}
+
